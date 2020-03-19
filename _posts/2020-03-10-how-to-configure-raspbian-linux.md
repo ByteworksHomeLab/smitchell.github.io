@@ -42,15 +42,11 @@ There are other specialty distributions for media servers, firewalls, etc. Those
 
 In the end, I chose Rasbian because of the large community of Raspbian users. If you have an affinity for Centos, Ubuntu, or some other Linux distribution, then that may be the best choice for you.
 # Creating Boot images
-I am running Raspbian headless, with no monitor or keyboard, so I downloaded the Buster Lite version instead of the desktop version.
+I am running Raspbian headless, with no monitor or keyboard, so I selected the Raspbian Lite version instead of the desktop version. Install an imaging tool, like <a href="https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/">Raspberry Pi Imager</a>, to flash your MicroSD card. 
 
-{% include image.html url="/img/post-assets/2020-03-10-how-to-configure-raspbian/download-raspbian.png" description="https://www.raspberrypi.org/downloads/raspbian/" %}
+{% include image.html url="/img/post-assets/2020-03-10-how-to-configure-raspbian/raspberry_pi_imager.png" description="Raspberry Pi Imager" %}
 
-<a href="https://www.balena.io/etcher/">Belena Etcher</a> is an open source program for flashing OS images to removable storage. Raspberry Pi has since released its own <a href="https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/">open-source utility for flashing SD cards</a>. Use whatever software suits your taste.
-
-{% include image.html url="/img/post-assets/2020-03-10-how-to-configure-raspbian/Etcher.png" description="https://www.balena.io/etcher/" %}
-
-Launch the Flashing software. Pick the Rasbian image. Insert the MicroSD card, and Flash it. 
+Launch the imaging software, like Etcher, or the Raspberry Pi Imager shown above. Pick the desired Linux image. Insert the MicroSD card and flash it. 
 # Enabling SSH
 To enable SSH on the first boot, you must create an empty file named “ssh” on the boot image. 
 Mount the MicroSD card that you just flashed and use the “touch” command to create an empty file named “ssh” in the boot directory. On a Mac, the following command creates the “ssh” file.
