@@ -22,7 +22,6 @@ Whether or not you use an SSD, you should know that too many writes shorten the 
 sudo dphys-swapfile swapoff
 sudo dphys-swapfile uninstall
 sudo update-rc.d dphys-swapfile remove
-### Moving logging to tempfs
 ```
 
 Edit /etc/fstab and add the following for lines.

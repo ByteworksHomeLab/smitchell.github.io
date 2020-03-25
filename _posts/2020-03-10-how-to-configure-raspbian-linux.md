@@ -214,7 +214,7 @@ Here is how the cmdline looks before and after editing.
 console=serial0,115200 console=tty1 root=PARTUUID=738a4d67-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
 
 ### AFTER
-console=serial0,115200 console=tty1 root=<span style="color:red">/dev/sda</span> rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait <span style="color:red">usb-storage.quirks=045b:0229:u</span
+console=serial0,115200 console=tty1 root=<span style="color:red">/dev/sda</span> rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait <span style="color:red">usb-storage.quirks=045b:0229:u</span>
 
 Reboot and then reconnect to the host and verify the change with the findmnt command. 
 
