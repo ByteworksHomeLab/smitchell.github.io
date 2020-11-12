@@ -14,7 +14,7 @@ show_related_posts: false
 feature_image: feature-python
 square_related: recommend-python
 ---
-When a client asked for microservices written in Python, instead of the Spring Cloud ecosystem that I’m accustomed to, it was an adjustment. The client wanted to replace an aging desktop application used by several hundred security and support staff with a simple, web-based application written in a programming language that the team knew. 
+When a client asked for microservices written in Python, instead of the Spring Cloud ecosystem that I’m accustomed to, it was an adjustment. The client wanted to replace an aging desktop application used by several hundred support staff with a simple, web-based application written in a programming language that the team knew. 
 
 These are my takeaways from the project:
 
