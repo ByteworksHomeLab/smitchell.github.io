@@ -35,6 +35,8 @@ For more details see [GitHub Flavored Markdown](https://guides.github.com/featur
 
 bundle install
 
+bundle exec jekyll serve
+
 ___
 
 References:
