@@ -23,7 +23,7 @@ These are my takeaways from the project:
 * JOSE (Javascript Object Signing and Encryption) simplifies securing resource servers.
 * NATS is a simpler alternative to messaging services like RabbitMQ.
 
-During design, we chose microservice boundaries that aligned with the application’s backing services. This system aggregates data from Active Directory, NetIQ, and UltiPro, so we built a microservice for each of them. We could have created fine-grained microservices for individual domain contexts, like a facility service, audit service, keywords service, etc.. Given the project budget and the type of application we were replacing, one microservice per backend made the most business sense.
+During design, we chose microservice boundaries that aligned with the application’s backing services. This system aggregates data from several LDAP and MSSQL systems, so we built a microservice for each of them. We could have created fine-grained microservices for individual domain contexts, like a facility service, audit service, keywords service, etc. Given the project budget and the type of application we were replacing, one microservice per backend made the most business sense.
 
 Aside from the syntactical differences between Java and Python, the overall project semantics felt familiar, making for an easy transition. Instead of Spring Web MVC, we used Python Flask, and instead of Spring Data JPA, we used Marshmallow with SQLAlchemy. Rather than having Spring REST Docs and annotation-driven Swagger files, we hand-coded the Swagger YAML files. Python libraries exist that generate Swagger files, but we didn’t have time to add them. We loaded the Swagger file into ng OpenAPI Gen to generate the Angular API clients, something I never tried before. I recommend it. 
 
@@ -49,13 +49,11 @@ Overall, the project was a success, thanks in large part to my teammates at Ahea
 # References
 * <a href="https://www.behance.net/jessjwilliamson/">Python Logo Credit: Jessica Williamson</a>
 * <a href="https://www.thinkahead.com/">Ahead</a>
-* <a href="https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-domain-services">Active Directory</a>
 * <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a>
 * <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Kubernetes Namespace</a>
 * <a href="https://www.nginx.com/products/nginx/kubernetes-ingress-controller/">Kubernetes Nginx</a>
 * <a href="https://kubernetes.io/docs/concepts/services-networking/service/">Kubernetes Service</a>
 * <a href="https://nats.io/">nats.io</a>
-* <a href="https://www.microfocus.com/en-us/products/netiq/overview">NetIQ</a>
 * <a href="https://www.npmjs.com/package/ng-openapi-gen">ng OpenAPI Gen</a>
 * <a href="https://www.pingidentity.com/">Ping Identity</a>
 * <a href="https://python-jose.readthedocs.io/en/latest/">Python JOSE</a>
@@ -65,5 +63,4 @@ Overall, the project was a success, thanks in large part to my teammates at Ahea
 * <a href="https://spring.io/projects/spring-security">Spring Security</a>
 * <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#spring-web">Spring Web MVC</a>
 * <a href="https://www.sqlalchemy.org/">SQLAlchemy</a>
-* <a href="https://www.ultimatesoftware.com/UltiPro-Services">UltiPro Services</a>
 
