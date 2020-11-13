@@ -52,7 +52,7 @@ The NATS messaging service took minimal work to configure. The original desktop 
 
 One thing we didn’t get to is a distributed cache. Many auto-completed input fields and lists use infrequently changed LDAP data, such as facilities, departments, positions, and job roles. The web interface would be snappier if it used an in-memory cache, like Redis. 
 
-Overall, the project was a success, thanks in large part to my teammates at <a href="https://www.thinkahead.com">Ahead</a>. We delivered the simplified, microservice solution that the client asked for written in the client’s preferred programming language. Now, our client no longer has to support the desktop application. The bugs are gone, and users received the enhancements they requested to work more effectively.  Best of all, thanks to the event-driven design, the users spend less time waiting and works faster.
+Overall, the project was a success, thanks in large part to my teammates at <a href="https://www.thinkahead.com">Ahead</a>. We delivered the simplified, microservice solution that the client asked for written in the client’s preferred programming language. Now, our client no longer has to support the desktop application. The bugs are gone, and users received the enhancements they requested to work more effectively.  Best of all, thanks to the event-driven design, the users are not stuck waiting and waiting for LDAP updates to complete.
 
 # References
 * <a href="https://www.behance.net/jessjwilliamson/">Python Logo Credit: Jessica Williamson</a>
