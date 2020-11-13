@@ -25,7 +25,16 @@ These are my takeaways from the project:
 
 During design, we chose microservice boundaries that aligned with the application’s backing services. This system aggregates data from several LDAP and MSSQL systems, so we built a microservice for each of them. We could have created fine-grained microservices for individual domain contexts, like a facility service, audit service, keywords service, etc. Given the project budget and the type of application we were replacing, one microservice per backend made the most business sense.
 
-Aside from the syntactical differences between Java and Python, the overall project semantics felt familiar, making for an easy transition. Instead of Spring Web MVC, we used Python Flask, and instead of Spring Data JPA, we used Marshmallow with SQLAlchemy. Rather than having Spring REST Docs and annotation-driven Swagger files, we hand-coded the Swagger YAML files. Python libraries exist that generate Swagger files, but we didn’t have time to add them. We loaded the Swagger file into ng OpenAPI Gen to generate the Angular API clients, something I never tried before. I recommend it. 
+Aside from the syntactical differences between Java and Python, the overall project semantics felt familiar, making for an easy transition. The following table shows a comparison of libraries.
+
+|Spring|Python|
+|-----------------------|-----------------------|
+|Spring Data JPA|SQLAlchemy|
+|Spring REST Docs|Hand-coded Swagger YAML files|
+|Spring LDAP|LDAP3|
+|Spring Web MVC|Python Flask|
+
+Python libraries exist that generate Swagger files, but we didn’t have time to add them. We loaded the Swagger file into ng OpenAPI Gen to generate the Angular API clients, something I never tried before. I recommend it. 
 
 As for security, the client uses Ping Identity for single-sign-on, so we didn't have to worry about standing up an authentication service. The authentication process didn’t require an OAuth2 Python library. We built a simple Security microservice to interface with Ping Identity. The frontend redirects the user to Ping Identity to do OpenID Connect single-sign-on. The authorization code returned by Ping Identity is then posted to the Security microservice via an API Gateway to exchange with Ping Identity for an access token. 
 
@@ -53,12 +62,14 @@ Overall, the project was a success, thanks in large part to my teammates at Ahea
 * <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Kubernetes Namespace</a>
 * <a href="https://www.nginx.com/products/nginx/kubernetes-ingress-controller/">Kubernetes Nginx</a>
 * <a href="https://kubernetes.io/docs/concepts/services-networking/service/">Kubernetes Service</a>
+* <a href="https://ldap3.readthedocs.io/en/latest/">LDAP3</a>
 * <a href="https://nats.io/">nats.io</a>
 * <a href="https://www.npmjs.com/package/ng-openapi-gen">ng OpenAPI Gen</a>
 * <a href="https://www.pingidentity.com/">Ping Identity</a>
 * <a href="https://python-jose.readthedocs.io/en/latest/">Python JOSE</a>
 * <a href="https://spring.io/projects/spring-cloud">Spring Cloud</a>
 * <a href="https://spring.io/projects/spring-data-jpa">Spring Data JPA</a>
+* <a href="https://spring.io/projects/spring-ldap">Spring LDAP</a>
 * <a href="https://spring.io/projects/spring-restdocs">Spring REST Docs</a>
 * <a href="https://spring.io/projects/spring-security">Spring Security</a>
 * <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#spring-web">Spring Web MVC</a>
