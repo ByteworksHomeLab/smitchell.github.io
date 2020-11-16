@@ -46,10 +46,10 @@ I am running Raspbian headless, with no monitor or keyboard, so I selected the R
 
 {% include image.html url="/img/post-assets/2020-03-10-how-to-configure-raspbian/raspberry_pi_imager.png" description="Raspberry Pi Imager" %}
 
-Launch the imaging software, like Etcher, or the Raspberry Pi Imager shown above. Pick the desired Linux image. Insert the MicroSD card and flash it. 
+Launch the imaging software, like Etcher, or the Raspberry Pi Imager shown above. Pick the desired Linux image. Insert the MicroSD card and flash it. Remove the MicroSD card when prompted by the imager, then reinsert it and it will be mounted. 
 # Enabling SSH
 To enable SSH on the first boot, you must create an empty file named “ssh” on the boot image. 
-Mount the MicroSD card that you just flashed and use the “touch” command to create an empty file named “ssh” in the boot directory. On a Mac, the following command creates the “ssh” file.
+The MicroSD card should automatically mount as /Volumes/boot when it is reinserted. Use the “touch” command to create an empty file named “ssh” in the boot directory. On a Mac, the following command creates the “ssh” file.
 
 ```shell
 touch /Volumes/boot/ssh
@@ -84,7 +84,6 @@ Here’s what we’ll be doing:
 
 1. Change User Password
 1. Localisation Options
-1. Advanced Options
 1. Network Options
 
 Launch the raspi-config utility with this command.
@@ -95,6 +94,8 @@ sudo raspi-config
 
 The main menu appears:
 {% include image.html url="/img/post-assets/2020-03-10-how-to-configure-raspbian/raspi-config-home.png" description="Raspberry Pi Software Configuration Tool Main Menu" %}
+Open the System Options menu.
+{% include image.html url="/img/post-assets/2020-03-10-how-to-configure-raspbian/raspi-config-sysops.png" description="Raspberry Pi Software Configuration Tool Main Menu" %}
 ## Change User Password
 Select the “Change User Password” option by pressing Enter on the top menu item, shown in red above. Enter “OK” when prompted, and then set your own, secure password.
 ## Localization Options
@@ -106,18 +107,12 @@ The default locale is “en_GB.UTF-8 UTF-8.” Change if desired.
 ### Change Time Zone
 The default time zone is “London.” Change if desired.
 ### Change Keyboard Layout
-It is good to have a keyboard to use in case of SSH problems. I bought a Logitech K400 Plus Wireless Touch TV Keyboard with Easy Media Control and Built-In Touchpad. It has to be mapped correctly or it won’t work when you need it. The keyboard needs to be attached to the Raspberry Pi when you change the configuration so that it can be probed by Raspbian. For me, that meant moving the keyboard’s USB bluetooth connector from one Raspbian Pi to the next as I set up each of them. 
+It is good to have a keyboard to use in case of SSH problems. A keyboard must be attached in order to use keyboard configuration. I bought a Logitech K400 Plus Wireless Touch TV Keyboard with Easy Media Control and Built-In Touchpad. It has to be mapped correctly or it won’t work when you need it. The keyboard needs to be attached to the Raspberry Pi when you change the configuration so that it can be probed by Raspbian. For me, that meant moving the keyboard’s USB bluetooth connector from one Raspbian Pi to the next as I set up each of them. 
 
 Select Change Keyboard Layout and then follow the prompts appropriately for your keyboard model. If the initial menu does not load, ensure that your keyboard is attached. For me, this happened when I moved from one Raspberry Pi to the next but forgot to move the Bluetooth USB connector.
 
 {% include tip.html content=" When I first started I was unable to sign in to my first Raspberry Pi via ssh. I tried and tried, nothing worked. Eventually, I discovered the key mapping of the keyboard I used to reset the password was wrong. One of the special characters in my password was map to a different key, which is why I couldn’t log in over SSH from my laptop. I  reattached the keyboard, changed the password back to “raspberry,” corrected the keyboard mapping, then changed the password back again to fix the problem." %}
-## Advanced Options
-This configuration change is optional. Select Advanced Options:
 
-{% include image.html url="/img/post-assets/2020-03-10-how-to-configure-raspbian/raspi-config-advanced.png" description="Raspberry Pi Software Configuration Tool Advanced Options Menu" %}
-### Memory Split
-
-Select Memory Split and reduce the amount of memory allocated for the GPU from 64mb to 16mb. This gives you a little more RAM for Kubernetes.
 ## Change the hostname
 The last thing we’ll do before rebooting is change the hostname. This makes it possible to distinguish between this Raspberry Pis and others on your network. Return to the main menu and select Network Options.	
 

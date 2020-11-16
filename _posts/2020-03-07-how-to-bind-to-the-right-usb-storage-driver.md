@@ -35,7 +35,7 @@ The usb-storage.quirks parameter, e.g. “usb-storage.quirks=045b:3483:u”, is 
 All you have to do is figure out the vendor and part number to use. To learn that, and a lot more, about your Raspberry Pi, you can install hwinfo.
 
 ```shell
-sudo apt get hwinfo
+sudo apt-get install hwinfo
 hwinfo --scsi
 ```
 
