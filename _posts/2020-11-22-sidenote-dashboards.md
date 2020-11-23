@@ -40,8 +40,8 @@ octant: jUuZxgjyPPc
 <a href="https://k8slens.dev/">Lens</a> is a desktop application built as a Kubernetes IDE. It is free, easy to install, and automatically reads the Kubeconfig file on your system. 
 {% include youtubePlayer.html id=page.lens %}
 
-### Metrics Service
-Most Kubernetes Dashboards give you access to metrics if you install the Metrics Service, described here: <a href="https://github.com/kubernetes-sigs/metrics-server">Kubernetes Metrics Server</a>.
+### Metrics Server
+Most Kubernetes Dashboards give you access to metrics if you install the Metrics Server, described here: <a href="https://github.com/kubernetes-sigs/metrics-server">Kubernetes Metrics Server</a>.
 
 ## Installation
 Start by following Rancher’s dashboard instructions: <a href="https://rancher.com/docs/k3s/latest/en/installation/kube-dashboard/">Rancher Docs: Kubernetes Dashboard</a>.
