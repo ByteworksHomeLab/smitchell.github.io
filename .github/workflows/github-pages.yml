@@ -7,21 +7,23 @@ on:
 
 jobs:
   github-pages:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - uses: helaili/jekyll-action@2.0.1
         env:
           JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
   build:
-    - uses: actions/checkout@v2
-    - uses: docker/setup-buildx-action@v1
-    - uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - uses: docker/build-push-action@v2
-      with:
-        context: .
-        tags: ${{ env.REGISTRY }}/blog:latest
-        push: true
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/setup-buildx-action@v1
+      - uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - uses: docker/build-push-action@v2
+        with:
+          context: .
+          tags: ${{ env.REGISTRY }}/blog:latest
+          push: true
