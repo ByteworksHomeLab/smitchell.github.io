@@ -77,7 +77,7 @@ kubectl proxy &
 Starting to serve on 127.0.0.1:8001 
 ```
 
-Open a browser and navigate to the Kubernetes Dashboard. Use the admin-user bearer token from above to log in. 
+Open a browser and navigate to the <a href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/overview?namespace=default">Kubernetes Dashboard</a>. Use the admin-user bearer token from above to log in. 
 
 {% include image.html url="/img/post-assets/sidenote-dashboard/DashboardLogin.png" description="Dashboard Login with Token" %}
 

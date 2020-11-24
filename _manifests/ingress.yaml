@@ -1,0 +1,17 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: smitchell-blog
+spec:
+  rules:
+  - host: smitchell.byteworksinc.com
+    http:
+      paths:
+      - backend:
+          serviceName: smitchell-blog
+          servicePort: web
+  tls:
+  - hosts:
+    - smitchell.byteworksinc.com
+    secretName: tls-homelab

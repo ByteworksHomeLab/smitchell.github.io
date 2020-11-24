@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smitchell-blog
+  labels:
+    app: smitchell-blog
+    tier: frontend
+    instance: frontend
+spec:
+  selector:
+    matchLabels:
+      app: smitchell-blog
+      tier: frontend
+      instance: frontend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: smitchell-blog
+        tier: frontend
+        instance: frontend
+    spec:
+      containers:
+      - name: smitchell-blog
+        image: jekyll-app:1.0.0
+        ports:
+        - name: web
+          containerPort: 80
+        readinessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20

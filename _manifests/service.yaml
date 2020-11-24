@@ -1,0 +1,15 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: smitchell-blog
+spec:
+  selector:
+    app: smitchell-blog
+    tier: frontend
+    instance: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+

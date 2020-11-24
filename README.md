@@ -30,17 +30,51 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
+## Building Jekyll
+```shell script
 bundle install
+```
 
+## Running Jekyll
+```shell script
 bundle exec jekyll serve
+```
+
+## Building Docker
+```shell script
+docker build -t jekyll-app:1.0.0 .
+```
+
+## Deployment yaml
+```shell script
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jekyll-website
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jekyll-website
+  template:
+    metadata:
+      labels:
+        app: jekyll-website  
+    spec:
+      containers:
+      - name: website
+        image: jekyll-app:1.0.0
+        ports:
+          - containerPort: 80
+```
 
 ___
+
+
 
 References:
 
 [1] Jekyll theme "Minimal" for GitHub Pages: https://github.com/pages-themes/minimal (CC0 1.0 Universal License)
-<br>[2] Dummy photo via: https://pixabay.com/photos/man-male-adult-person-caucasian-1209494/ (Pixabay License)
-<br>[3] Dummy thumbnail image created by rawpixel.com: https://www.freepik.com/free-vector/set-elements-infographic_2807573.htm (Standard Freepik License)
+[2] https://www.cloudytuts.com/guides/kubernetes/how-to-deploy-jekyll-on-kubernetes/

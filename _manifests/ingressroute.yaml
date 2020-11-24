@@ -1,0 +1,16 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: smitchell-blog
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: HOST(`blog.byteworksinc.com`)
+    kind: Rule
+    services:
+    - name: smitchell-blog
+      port: 80
+  tls:
+    {}
