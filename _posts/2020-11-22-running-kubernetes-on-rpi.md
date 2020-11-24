@@ -55,5 +55,5 @@ Before I sign off, here is a peek at my current eight-node cluster as of Thanksg
 
 {% include image.html url="/img/post-assets/2020-11-22-k8s-on-rpi/cluster.png" description="Raspberry Pi Cluster" %}
 
-
+----
 
