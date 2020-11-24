@@ -27,6 +27,8 @@ jobs:
           platforms: linux/arm/v8,linux/amd64,linux/386
           push: true
           tags: user/app:latest
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
