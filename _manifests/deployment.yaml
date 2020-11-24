@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: smitchell-blog
-        image: jekyll-app:1.0.0
+        image: stevecmitchell/jekyll-blog:latest
         ports:
         - name: web
           containerPort: 80
