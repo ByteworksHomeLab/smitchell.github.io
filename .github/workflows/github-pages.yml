@@ -25,5 +25,5 @@ jobs:
       - uses: docker/build-push-action@v2
         with:
           context: .
-          tags: ${{ env.REGISTRY }}:latest
+          tags: smitchell/blog:latest
           push: true
