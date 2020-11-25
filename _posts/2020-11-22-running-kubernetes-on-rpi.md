@@ -14,7 +14,7 @@ show_related_posts: false
 feature_image: feature-raspberry
 square_related: recommend-raspberry
 ---
-I loved trains as a boy, which may explain why I am running Kubernetes on Raspberry Pis for my home lab instead of in the cloud. Think of it like model railroading for computer geeks! In my earlier post, <a href="https://smitchell.github.io/how-to-configure-raspbian-linux">How to Configure Raspbian Linux</a>, we installed and configured Raspbian Linux on all Raspberry Pis. Now it’s time to add Kubernetes.
+I loved trains as a boy, which may explain why I am running Kubernetes on Raspberry Pis for my home lab instead of in the cloud. Think of it like model railroading for computer geeks! In my earlier post, <a href="https://smitchell.github.io/how-to-configure-raspbian-linux">How to Configure Raspbian Linux</a>, we installed and configured Raspbian Linux on all the Raspberry Pis. Now it’s time to add Kubernetes.
 
 {% include image.html url="/img/post-assets/2020-11-22-k8s-on-rpi/locomotives.png" description="Kubernetes and Raspbian Locomotives" %}
 
