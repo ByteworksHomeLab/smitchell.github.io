@@ -9,7 +9,7 @@ author_name : Steve Mitchell
 author_url : /author/steve
 author_avatar: steve
 show_avatar : false
-read_time : 10
+read_time : 5
 show_related_posts: false
 feature_image: feature-raspberry
 square_related: recommend-raspberry

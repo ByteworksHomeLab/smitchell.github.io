@@ -52,7 +52,11 @@ Add the configuration for the remote Rsyslog server to the /etc/rsyslog.conf fil
 
 {% include image.html url="/img/post-assets/sidenote-rsyslog/rsyslog_client.png" description="Rsyslog Client Configuration" %}
 
-Those instructions are for Ubuntu, so it has the wrong command to restart Rsyslog on Raspbian. Use this command instead.
+Also, the syslog is excluded by default. I'm sure a Linux admin knows a good reason for that, but for my home lab I need the logs. In order to send syslog you need to remove the dash in front of it.
+
+{% include image.html url="/img/post-assets/sidenote-rsyslog/syslog.png" description="Include syslog" %}
+
+Finally, the linked instructions I followed are for Ubuntu, so it has the wrong command to restart Rsyslog on Raspbian. Use this command instead.
 
 ```shell 
 sudo service rsyslog restart
