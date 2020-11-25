@@ -20,6 +20,8 @@ I loved trains as a boy, which may explain why I am running Kubernetes on Raspbe
 
 {% include tip.html content="<a href='https://www.alexellis.io/'>Alex Ellis</a> has an excellent post about installing Rancher Labs K3s on your Raspberry Pi cluster called <a href='https://blog.alexellis.io/test-drive-k3s-on-raspberry-pi/'>Will it cluster? k3s on your Raspberry Pi</a>." %}
 
+*SPOILER ALERT* - I will cover building multi-architecture Docker images and writing infrastructure as a code with Terraform in future posts. My goal is to be able to spin up a multi-cloud cluster.
+
 # Choosing a Kubernetes Distribution
 You have choices when it comes to a Kubernetes distribution for your Raspberry Pis. Here are just a few.
 
