@@ -13,6 +13,7 @@ read_time : 15
 feature_image: feature-raspberry
 show_related_posts: false
 square_related: recommend-raspberry
+usbBootVideo: 8tTFgrOCsig
 ---
 {% include image.html url="/img/post-assets/2020-03-10-how-to-configure-raspbian/raspbian-logo-300x253.png" description="Raspbian Logo" %}
 
@@ -150,13 +151,13 @@ ssh pi@192.168.1.10
 ```
 
 # Booting from SSD
-Technically, the Raspberry Pi 4 doesn’t support booting from SSD yet. You can get around this booting issue by assigning root path to /dev/sda. Technically, the Raspberry Pi still boots from the MicroSD card but then all reads and writes to the root directory happens on the mSATA drive. This "Try At Home" <a href="https://www.youtube.com/watch?v=FM9wuFLufyA">YouTube video</a> gives great step-by-step instructions.
 
-{% include tip.html content="This optional step, to boot from an SSD, may differ depending on your setup. My SSD mounted as /dev/sda, but yours may not. To find your SSD run the “sudo fdisk --list” command. Your SSD will be described like “Disk /dev/sda: 238.5 GiB, Disk model: SD mSATA.” Take note of the path, e.g. /dev/sda, and use that wherever you see “/dev/sda” referenced below." %}
+{% include tip.html content="UPDATE: The Raspberry Pi now supports booting from USB3. The video below shows how." %}
+{% include youtubePlayer.html id=page.usbBootVideo %}
 
-The video linked above explains what to set up the SSD. Here is a summary of the commands issued in the video. Watch the video for a full explanation.
-
-Find the SSD drive and repartition it.
+I boot from microSD still because it is easier to access in my cluster rack. If I booted from mSATA, I would have to disassemble my rack to re-image a node.
+ 
+Repartition the SSD drive.
 
 ```shell
 sudo fdisk --list # (to find your SSD)
@@ -240,5 +241,6 @@ In my next article we will cover installing Kubernetes and setting up your clust
 * <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/">https://www.raspberrypi.org/documentation/remote-access/ssh</a>
 * <a href="https://www.raspberrypi.org/documentation/raspbian/updating.md">https://www.raspberrypi.org/documentation/raspbian/updating.md</a>
 * <a href="https://www.youtube.com/watch?v=FM9wuFLufyA">https://www.youtube.com/watch?v=FM9wuFLufyA</a>
+* https://www.youtube.com/watch?v=FM9wuFLufyA
 
 

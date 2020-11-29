@@ -99,7 +99,7 @@ In this side view, you can see the insets I drilled in the acrylic side panel to
 
 Finish your mechanical installation of the cluster parts and we’ll pick-up with the software installation in the next article, Installing Raspian and Kubernetes.
 
-I’m so happy that I work at <a href="https://thinkahead.com">Ahead</a> where this kind of experimentation is encouraged. If you want to learn about opportunities at Ahead, please reach out to my buddy, <a href="mailto:kaleigh.baker@thinkahead.com">Kaleigh</a>, to find out what positions are open or drop her your resume. 
+I’m so happy I work at <a href="https://thinkahead.com">Ahead</a>. Ahead encourages this kind of experimentation. If you want to learn about opportunities at Ahead, please reach out to my buddy, <a href="mailto:kaleigh.baker@thinkahead.com">Kaleigh</a>, to find out what positions are open or drop her your resume. 
 
 ## Next
 In the next installment of the series, <a href="/how-to-configure-raspbian-linux">How to Configure Raspbian</a>, I detail the set-up of Raspbian, booting off of SSD.
@@ -113,8 +113,3 @@ In the next installment of the series, <a href="/how-to-configure-raspbian-linux
 * <a href="https://jamesachambers.com/raspberry-pi-cheap-ssd-upgrade-30/">https://jamesachambers.com/raspberry-pi-cheap-ssd-upgrade-30</a>
 * <a href="https://www.element14.com/community/community/raspberry-pi/blog/2019/08/30/quick-sd-to-ssd-on-the-pi-4">https://www.element14.com/community/community/raspberry-pi/blog/2019/08/30/quick-sd-to-ssd-on-the-pi-4</a>
 *  <a href="https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/">https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives</a>
-
-
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help

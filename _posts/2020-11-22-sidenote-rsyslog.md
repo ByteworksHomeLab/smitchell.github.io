@@ -56,7 +56,7 @@ Also, the syslog is excluded by default. I'm sure a Linux admin knows a good rea
 
 {% include image.html url="/img/post-assets/sidenote-rsyslog/syslog.png" description="Include syslog" %}
 
-Finally, the linked instructions I followed are for Ubuntu, so it has the wrong command to restart Rsyslog on Raspbian. Use this command instead.
+Finally, the instructions I followed above are for Ubuntu, so the command to restart rsyslog won't work on Raspbian. Use this command instead.
 
 ```shell 
 sudo service rsyslog restart
