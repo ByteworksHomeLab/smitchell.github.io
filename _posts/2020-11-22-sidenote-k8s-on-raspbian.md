@@ -15,7 +15,11 @@ feature_image: feature-sidenotes
 ---
 {% include image.html url="/img/post-assets/sidenode-k8s-on-raspbian/k8s_on_raspbian.png" description="Kubernetes on Raspbian" %}
 # Preparing Raspbian
-Before jumping into Kubernetes, let’s prepare Rasbian for virtualization. Containers and virtual machines rely on Linux namespaces and control groups for security, so we need to enable them in Raspbian by editing the /boot/cmdline.txt file. Reboot the nodes when you finish.
+Before jumping into Kubernetes, if you run Raspbian instead of Ubuntu, it needs to be setup for virtualization. If you are running Ubuntu, skip to "Installing the Master Node."
+
+{% include tip.html content="Read how I made the switch from 32-bit Raspbian to 64-bit Ubuntu to improve Docker image compatibility. <a href='/running-ubuntu-on-rpi'>Jump to Ubuntu Post.</a>" %}
+
+Containers and virtual machines rely on Linux namespaces and control groups for security, so we need to enable them in Raspbian by editing the /boot/cmdline.txt file. Reboot the nodes when you finish.
 
 ```shell
 sudo cp /boot/cmdline.txt /boot/cmdline.txt.bak1

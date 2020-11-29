@@ -87,7 +87,9 @@ You are now ready to boot from your USB drive.
 1. Attach a USB3 drive flashed with whatever OS you chose.
 1. Turn the power back on.
 
-Luckily, changing the boot firmware was a one-time change. Now, on to the Ubuntu setup.
+Use the same microSD card to boot any other Raspberry Pis that need an EEPROM update. You only have to repeat the "rpi-eeprom-update" and "vcgencmd" steps for each upgrade. Luckily, changing the boot firmware was a one-time change. 
+
+Now that the boot firmware is up-to-date, let’s install Ubuntu. 
 
 # Setting up Ubuntu
 
@@ -100,7 +102,7 @@ Getting the host ready for the cluster is easy now that it boots directly from t
 
 ## Flashing the USB Drive
 
-Plug a USB drive into your desktop or laptop. Open the Raspberry Pi Imager and select the distribution you desire. I run my servers headless, so I chose Ubuntu Server 20.10 (RPI 3, 4, 400) for AMD64. Select the USB driver under “SD Card,” and click Write.
+Plug a USB drive into your desktop or laptop. Open the Raspberry Pi Imager and select the distribution you desire. I run my servers headless, so I chose Ubuntu Server 20.10 (RPI 3, 4, 400) for AMD64. Select your USB drive under “SD Card,” and click Write.
 
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/ubuntu_flash.png" description="Flash the USB Drive with Ubuntu" %}
 
@@ -111,7 +113,7 @@ touch /Volumes/system-boot/ssh
 ```
 
 ## Boot Ubuntu
-Give the system a minute to reboot then find the IP address on your network and connect via ssh.
+Give the system a minute to reboot then find the IP address on your network and connect via ssh. Use “ping -c 2 ubuntu” to find the IP.
 
 {% include warning.html content="I could not immediately connect with SSH to one of my eight Raspberry Pis, even though I added the ssh file after it was flashed. If this happens to you, attach a monitor and keyboard, login, and reset the password. SSH should work after you reboot." %}
 

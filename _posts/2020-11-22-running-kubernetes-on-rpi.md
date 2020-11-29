@@ -22,6 +22,8 @@ I loved trains as a boy, which may explain why I am running Kubernetes on Raspbe
 
 *SPOILER ALERT* - I will cover building multi-architecture Docker images and writing infrastructure as a code with Terraform in future posts. My goal is to be able to spin up a multi-cloud cluster.
 
+{% include tip.html content="UPDATE: Read how I made the switch from 32-bit Raspbian to 64-bit Ubuntu to improve Docker image compatibility. <a href='/running-ubuntu-on-rpi'>Jump to Ubuntu Post.</a>" %}
+
 # Choosing a Kubernetes Distribution
 You have choices when it comes to a Kubernetes distribution for your Raspberry Pis. Here are just a few.
 
