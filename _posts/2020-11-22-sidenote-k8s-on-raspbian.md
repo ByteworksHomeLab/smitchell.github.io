@@ -14,17 +14,26 @@ show_related_posts: false
 feature_image: feature-sidenotes
 ---
 {% include image.html url="/img/post-assets/sidenode-k8s-on-raspbian/k8s_on_raspbian.png" description="Kubernetes on Raspbian" %}
-# Preparing Raspbian
-Before jumping into Kubernetes, if you run Raspbian instead of Ubuntu, it needs to be setup for virtualization. If you are running Ubuntu, skip to "Installing the Master Node."
+# Add Cgroups to Linux
+Before jumping into Kubernetes, Linux needs to be setup for virtualization.
 
 {% include tip.html content="Read how I made the switch from 32-bit Raspbian to 64-bit Ubuntu to improve Docker image compatibility. <a href='/running-ubuntu-on-rpi'>Jump to Ubuntu Post.</a>" %}
 
 Containers and virtual machines rely on Linux namespaces and control groups for security, so we need to enable them in Raspbian by editing the /boot/cmdline.txt file. Reboot the nodes when you finish.
 
+## Enable Virtualization for Raspbian
 ```shell
 sudo cp /boot/cmdline.txt /boot/cmdline.txt.bak1
 orig="$(head -n1 /boot/cmdline.txt) cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory"
 echo $orig | sudo tee /boot/cmdline.txt
+sudo reboot
+```
+
+## Enable Virtualization for Ubuntu
+```shell
+sudo cp /boot/firmware/cmdline.txt /boot/firmware/cmdline.txt.bak1
+orig="$(head -n1 /boot/firmware/cmdline.txt) cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory"
+echo $orig | sudo tee /boot/firmware/cmdline.txt
 sudo reboot
 ```
 {% include warning.html content="If you forget this step, the k3s agent won’t work. I build all my nodes manually, and I have accidentally skipped this step. When I do, the k3s agent appears to install correctly, but it never shows up with “kubectl get nodes.” Digging into the logs you find that the agent won’t start without the Linux CPU and memory control groups." %}
@@ -33,6 +42,8 @@ sudo reboot
 # Installing the Master Node
 
 It is straightforward to get started with K3s. See the <a href="https://k3s.io/">Quick Start Guide</a>. I installed k3s slightly differently using the command below. It downloads an installation script, pipes it into the shell to install and configure the master node, and then starts the server. The Kubeconfig config is stored in /etc/rancher/k3s/k3s.yaml during the process.
+
+{% include warning.html content="If running Ubuntu, replace \"ssh pi@p...\" with \"ubuntu@pi...\" or add the user \"pi\" to Ubuntu with sudo privileges" %}
 
 ```shell
 curl -sfL https://get.k3s.io | sh -s - server &
@@ -50,6 +61,7 @@ Next, copy the kubeconfig file and change the server IP address from 127.0.0.1 t
 
 ```shell
 sudo cp /etc/rancher/k3s/k3s.yaml ~/kubeconfig
+sudo chown $(whoami):$(whoami) ~/kubeconfig
 ```
 
 Copy the edited file to your computer. Export the KUBECONFIG variable from the shell or export it from your ~/.zshrc or ~/.bashrc file.
