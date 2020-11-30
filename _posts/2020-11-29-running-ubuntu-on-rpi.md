@@ -20,36 +20,37 @@ When I started using Kubernetes on 32-bit Raspbian I quickly discovered that man
 
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/ubuntu+rpi.png" description="Ubuntu on Raspberry Pi" %}
 
-On October 22, 2020, Canonical released an [Ubuntu Desktop image optimised for the Raspberry Pi](http://ubuntu.com/raspberry-pi). What most excited me about this release is support for the AMD64 platform on the Raspberry Pi 3 and 4.
+On October 22, 2020, Canonical released an [Ubuntu Desktop image optimized for the Raspberry Pi](http://ubuntu.com/raspberry-pi). What most excited me about this release is the AMD64 platform’s support on the Raspberry Pi 3 and 4.
+.
 
 {% include youtubePlayer.html id=page.ubuntu_launch %}
 Ubuntu Desktop for Raspberry Pi
 
-Before I install Ubuntu, I am updating the boot loader to boot directly off of USB without needing the microSD card installed.
+Before installing Ubuntu, I am updating my Raspberry Pis to boot directly off USB without needing the microSD card installed.
 
 # Booting from a USB Drive
 
-In the fall of 2020, Raspberry Pi officially released the long awaited Raspberry Pi 4 boot EEPROM to boot directly from a USB3 drive without having the MicroSD card plugged in. [Jeff Geerling](https://www.jeffgeerling.com/blog) has a blog and video showing the upgrade: [I'm booting my Raspberry Pi 4 from a USB SSD](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd).
+In the fall of 2020, Raspberry Pi released the long-awaited Raspberry Pi 4 boot EEPROM to boot directly from a USB3 drive without having the MicroSD card plugged in. [Jeff Geerling](https://www.jeffgeerling.com/blog) has a blog and video showing the upgrade: [I'm booting my Raspberry Pi 4 from a USB SSD](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd).
 
 ## Prepare the Raspbian microSD
 If you are updating multiple Raspberry Pis, like me, these steps only have to be done once to prepare the microSD card. Reuse the microSD on any Raspberry Pis that need the EEPROM update. Only the last two steps, “rpi-eeprom-update” and “vcgencmd,” get repeated after updating the first Raspberry Pi.
 
-You need a MicroSD flashed with Raspbian. I use Raspbian lite, the server version. Be sure to add the ssh file.
+Flash a MicroSD card with Raspbian. I use Raspbian lite, the server version. Be sure to add the ssh file after flashing.
 ```shell
-touch /Volumes/system-boot/ssh
+touch /Volumes/boot/ssh
 ```
 
-Eject the microSD, install it in the Raspberry Pi, power it up, and wait a bit for it to come online. Use ping to find the IP address.
+Eject the microSD, insert it into the Raspberry Pi, power it up, and wait a bit for it to come online. Use ping to find the IP address on your network.
 
 ```shell
 ping -c 2 raspberrypi
 ```
 
-Connect to the IP address using ssh, and log in using the password “raspberry.”
+Connect to the IP address using ssh, and log in as user “pi” using the password “raspberry.”
 
 ## Updating the EEPROM
 
-If you have an older Raspberry Pi 4, then you need to upgrade the boot loader EEPROM to enable booting from USB drives. These are the steps I followed after my first login. 
+If you have an older Raspberry Pi 4, you need to upgrade the boot loader EEPROM to enable booting from USB drives. Update Rasbian to get the latest boot loader, and then edit “/etc/default/rpi-eeprom-update” to allow the Pi to use the latest stable version.
 
 ```shell
 sudo apt update
@@ -82,14 +83,14 @@ vcgencmd bootloader_version
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/verify_bootloader.png" description="Verify the Boot Loader Update" %}
 
 You are now ready to boot from your USB drive.
-1. Shutdown then power off the Raspberry Pi.
+1. Shutdown, then power off the Raspberry Pi.
 1. Remove the microSD card.
 1. Attach a USB3 drive flashed with whatever OS you chose.
 1. Turn the power back on.
 
-Use the same microSD card to boot any other Raspberry Pis that need an EEPROM update. You only have to repeat the "rpi-eeprom-update" and "vcgencmd" steps for each upgrade. Luckily, changing the boot firmware was a one-time change. 
+Use the same microSD card to update any other Raspberry Pis that need the new EEPROM. You only have to repeat the "rpi-eeprom-update" and "vcgencmd" steps for additional Raspberry Pi. Luckily, changing the boot firmware was a one-time change. 
 
-Now that the boot firmware is up-to-date, let’s install Ubuntu. 
+Now that the boot firmware is up-to-date let’s install Ubuntu. 
 
 # Setting up Ubuntu
 
@@ -106,21 +107,24 @@ Plug a USB drive into your desktop or laptop. Open the Raspberry Pi Imager and s
 
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/ubuntu_flash.png" description="Flash the USB Drive with Ubuntu" %}
 
-Remount the USB drive after it is flashed and add the ssh file.
+Remount the USB drive after it finishes to add the ssh file. Notice, the Ubuntu USB drive mounts as “/Volumes/system-boot” instead of “V/olumes/boot” as the Raspbian does.
 
 ```shell
 touch /Volumes/system-boot/ssh
 ```
 
 ## Boot Ubuntu
-Give the system a minute to reboot then find the IP address on your network and connect via ssh. Use “ping -c 2 ubuntu” to find the IP.
+Attach the USB drive to the Raspberry Pi and power it up. Give the system a minute to reboot, find the IP address on your network, and connect via ssh. Use “ping -c 2 ubuntu” to get the IP address.
 
-{% include warning.html content="I could not immediately connect with SSH to one of my eight Raspberry Pis, even though I added the ssh file after it was flashed. If this happens to you, attach a monitor and keyboard, login, and reset the password. SSH should work after you reboot." %}
+```shell
+ping -c 2 ubuntu
+```
 
+I could not immediately connect with SSH to one of my eight Raspberry Pis, even though I added the ssh file. If this happens to you, attach a monitor and keyboard, login, and reset the password. SSH should work after you reboot.
 
 ## Update Ubuntu
 
-Update the Ubuntu OS after your first login.
+The first time you connect to Ubuntu as user “ubuntu” with the password “ubuntu,” the system prompts you to change the password. After changing the password, install the latest Ubuntu updates.
 
 ```shell
 sudo apt update
@@ -189,7 +193,7 @@ sudo hostnamectl set-hostname pi1
 
 ## Adding SSH Key for Authentication
 
-Add your computer’s SSH key to the host to not have to enter a password when you connect with SSH.
+Add your computer’s SSH key to the host to avoid having to enter a password when you connect with SSH.
 
 {% include tip.html content="This tip shows how to set up SSH and multicast commands to all the nodes in the cluster: <a href='/how-to-multicast-commands'>How to Multicast Commands</a>. " %}
 
@@ -197,7 +201,7 @@ Add your computer’s SSH key to the host to not have to enter a password when y
 ssh-copy-id -i ~/.ssh/id_rsa.pub  ubuntu@pi1
 ```
 
-That’s it. We’re now ready to install Rancher K3s Kubernetes. Here is the result
+That’s it. We’re now ready to install Rancher K3s Kubernetes. Here is the result:
 
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/UbuntuAMD64Pis.png" description="Ubuntu on Pis" %}
 
