@@ -25,7 +25,7 @@ This post covers two options:
 # Cloud Logging for AMD64 Ubuntu
 With Ubuntu installed, cloud logging becomes a practical option because most logging agents have a build for AMD64.
 ## Solarwinds Loggly
-Loggly works perfectly on AMD32 orAMD64 OSs.I chose not to continue with it because the least expensive month-to-month subscription is $99/month.
+Loggly works perfectly on AMD32 Raspbiean or AMD64 Ubuntu. I chose not to continue with it because the least expensive month-to-month subscription is $99/month.
 
 {% include image.html url="/img/post-assets/sidenote-centralized-logging/loggly.png" description="SolarWinds Loggly Dashboard" %}
 
