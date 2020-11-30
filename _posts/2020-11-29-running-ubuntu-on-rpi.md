@@ -197,7 +197,9 @@ Add your computer’s SSH key to the host to not have to enter a password when y
 ssh-copy-id -i ~/.ssh/id_rsa.pub  ubuntu@pi1
 ```
 
-That’s it. We’re now ready to install Rancher K3s Kubernetes.
+That’s it. We’re now ready to install Rancher K3s Kubernetes. Here is the result
+
+{% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/UbuntuAMD64Pis.png" description="Ubuntu on Pis" %}
 
 ----
 # References

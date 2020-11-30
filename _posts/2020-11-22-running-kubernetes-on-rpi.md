@@ -51,7 +51,7 @@ Kubernetes includes a dashboard, but you have options if you want something diff
 ## Centralized Logging
 Things can go wrong with your Raspberry Pi nodes. Trust me; I have some first-hand experience; that is why I set up my cluster to send the logs off-node, enabling me to examine them separately if the node goes down.
    
-{% include tip.html content="Centralized logging instructions for the Raspberry Pi. <a href='/sidenote-rsyslog'>Jump to article</a>" %}
+{% include tip.html content="Centralized logging instructions for the Raspberry Pi. <a href='/sidenote-centralized-logging'>Jump to article</a>" %}
 
 If you installed Rander k3s, use the "kill all" command to drain your nodes before shutting down. While writing this post the batteries in my UPS went bad it began blaring its alarm. I issued the "kill all" to all the worker nodes and shut them down, then I did the same on the primary node. After removing the failing UPS power supply I powered the cluster back on and everything started normally.
 

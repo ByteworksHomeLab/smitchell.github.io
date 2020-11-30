@@ -1,6 +1,6 @@
 ---
 layout: sidenote
-title:  "How to Install Rancher Labs k3s on Raspbian"
+title:  "How to Install Rancher Labs k3s on Raspbian or Ubuntu"
 url: /how-to-install-k3s-on-raspbian
 comments: true
 date: 2020-11-22
@@ -92,7 +92,7 @@ Pass the server token into the agent node command to install the k3s agent on th
 
 {% include tip.html content="Would you like to be able to update all of Raspberry Pis at simultaneously? If so, see my side-note <a href='/how-to-multicast-commands'>How to Multicast Commands</a>. " %}
 
-Whether you update the nodes one at a time or simultaneously, export the server token copied above as a variable, and then run the command shown.
+Whether you update the nodes one at a time or simultaneously, export the server token copied above as a variable, and then run the command shown. When I installed Ubuntu, I broadcast the commands to all the worker nodes at the same time and it worked great.
 
 ```shell
 ssh pi2
