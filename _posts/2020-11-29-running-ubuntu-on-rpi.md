@@ -82,12 +82,6 @@ vcgencmd bootloader_version
 ```
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/verify_bootloader.png" description="Verify the Boot Loader Update" %}
 
-You are now ready to boot from your USB drive.
-1. Shutdown, then power off the Raspberry Pi.
-1. Remove the microSD card.
-1. Attach a USB3 drive flashed with whatever OS you chose.
-1. Turn the power back on.
-
 Use the same microSD card to update any other Raspberry Pis that need the new EEPROM. You only have to repeat the "rpi-eeprom-update" and "vcgencmd" steps for additional Raspberry Pi. Luckily, changing the boot firmware was a one-time change. 
 
 Now that the boot firmware is up-to-date let’s install Ubuntu. 
