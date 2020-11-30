@@ -14,7 +14,7 @@ jobs:
         env:
           JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.10
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
@@ -25,8 +25,6 @@ jobs:
       - uses: docker/build-push-action@v2
         with:
           context: .
-#          platforms: linux/arm/v8
-# buildx call failed with: failed to solve: rpc error: code = Unknown desc = executor failed running [/bin/sh -c bundle install &&     jekyll build]: exit code: 1
           platforms: linux/amd64
           tags: stevecmitchell/jekyll-blog:latest
           push: true
