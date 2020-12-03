@@ -20,7 +20,7 @@ When I started using Kubernetes on 32-bit Raspbian I quickly discovered that man
 
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/ubuntu+rpi.png" description="Ubuntu on Raspberry Pi" %}
 
-On October 22, 2020, Canonical released an [Ubuntu Desktop image optimized for the Raspberry Pi](http://ubuntu.com/raspberry-pi). What most excited me about this release is the AMD64 platform’s support on the Raspberry Pi 3 and 4.
+On October 22, 2020, Canonical released an [Ubuntu Desktop image optimized for the Raspberry Pi](http://ubuntu.com/raspberry-pi). What has me most excited me about this release is the AMD64 platform’s support on the Raspberry Pi 3 and 4.
 .
 
 {% include youtubePlayer.html id=page.ubuntu_launch %}

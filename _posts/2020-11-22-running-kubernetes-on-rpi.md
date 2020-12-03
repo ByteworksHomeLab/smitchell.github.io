@@ -18,10 +18,6 @@ I loved trains as a boy, which may explain why I am running Kubernetes on Raspbe
 
 {% include image.html url="/img/post-assets/2020-11-22-k8s-on-rpi/locomotives.png" description="Kubernetes and Raspbian Locomotives" %}
 
-{% include tip.html content="<a href='https://www.alexellis.io/'>Alex Ellis</a> has an excellent post about installing Rancher Labs K3s on your Raspberry Pi cluster called <a href='https://blog.alexellis.io/test-drive-k3s-on-raspberry-pi/'>Will it cluster? k3s on your Raspberry Pi</a>." %}
-
-*SPOILER ALERT* - I will cover building multi-architecture Docker images and writing infrastructure as a code with Terraform in future posts. My goal is to be able to spin up a multi-cloud cluster.
-
 {% include tip.html content="Read how I made the switch from 32-bit Raspbian to 64-bit Ubuntu Server 20.10 to improve Docker image compatibility. <a href='/running-ubuntu-on-rpi'>Jump to Ubuntu Post.</a>" %}
 
 # Choosing a Kubernetes Distribution
@@ -60,6 +56,8 @@ If you installed Rander k3s, use the "kill all" command to drain your nodes befo
 ``` 
    
 That’s it for now. In my next post, I will begin deploying a workload to my new cluster.
+
+{% include tip.html content="<a href='https://www.alexellis.io/'>Alex Ellis</a> has an excellent post about installing Rancher Labs K3s on your Raspberry Pi cluster called <a href='https://blog.alexellis.io/test-drive-k3s-on-raspberry-pi/'>Will it cluster? k3s on your Raspberry Pi</a>." %}
    
 Before I sign off, here is a peek at my current eight-node cluster as of Thanksgiving, 2020:
 
