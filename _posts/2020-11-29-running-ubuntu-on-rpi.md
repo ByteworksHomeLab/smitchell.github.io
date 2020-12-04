@@ -20,7 +20,7 @@ When I started using Kubernetes on 32-bit Raspbian I quickly discovered that man
 
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/ubuntu+rpi.png" description="Ubuntu on Raspberry Pi" %}
 
-On October 22, 2020, Canonical released an [Ubuntu Desktop image optimized for the Raspberry Pi](http://ubuntu.com/raspberry-pi). What has me most excited me about this release is the AMD64 platform’s support on the Raspberry Pi 3 and 4.
+On October 22, 2020, Canonical released an [Ubuntu Desktop image optimized for the Raspberry Pi](http://ubuntu.com/raspberry-pi). What has me most excited me about this release its support for AMD64 on the Raspberry Pi 3 and 4.
 .
 
 {% include youtubePlayer.html id=page.ubuntu_launch %}
@@ -132,7 +132,7 @@ Here is a six-minute video showing how to set a static IP using Netplan.
 {% include youtubePlayer.html id=page.ubuntu_static %}
 Setting Static IPs with Netplan
 
-Before setting the static IP, disabled cloud-init’s network configuration capabilities by adding this file: 
+Before setting the static IP, disable cloud-init’s network configuration capabilities by adding this file: 
 /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg. Include the line below in the file.
 
 ```shell
