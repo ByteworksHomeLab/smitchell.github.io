@@ -23,12 +23,9 @@ When I started using Kubernetes on 32-bit Raspbian I quickly discovered that man
 {% include tip.html content="Before switching to Ubuntu, I upgraded the boot loader EEPROM to boot directly from a USB drive without a microSD installed. Learn how: <a href='/boot-from-usb'>Jump to article</a>. " %}
 
 On October 22, 2020, Canonical released an [Ubuntu Desktop image optimized for the Raspberry Pi](http://ubuntu.com/raspberry-pi). What has me most excited me about this release its support for AMD64 on the Raspberry Pi 3 and 4.
-.
 
 {% include youtubePlayer.html id=page.ubuntu_launch %}
 Ubuntu Desktop for Raspberry Pi
-
-Before installing Ubuntu, I am updating my Raspberry Pis to boot directly off USB without needing the microSD card installed.
 
 # Setting up Ubuntu
 
