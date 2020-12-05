@@ -68,6 +68,6 @@ vcgencmd bootloader_version
 
 Use the same microSD card to update any other Raspberry Pis that need the new EEPROM. You only have to repeat the "rpi-eeprom-update" and "vcgencmd" steps for additional Raspberry Pi. Luckily, changing the boot firmware was a one-time change. 
 
- ----
- # References
- * * [I'm booting my Raspberry Pi 4 from a USB SSD](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd)
+----
+# References
+* [I'm booting my Raspberry Pi 4 from a USB SSD](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd)
