@@ -20,6 +20,8 @@ When I started using Kubernetes on 32-bit Raspbian I quickly discovered that man
 
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/ubuntu+rpi.png" description="Ubuntu on Raspberry Pi" %}
 
+{% include tip.html content="Before switching to Ubuntu, I upgraded the boot loader EEPROM to boot directly from a USB drive without a microSD installed. Learn how: <a href='/boot-from-usb'>Jump to article</a>. " %}
+
 On October 22, 2020, Canonical released an [Ubuntu Desktop image optimized for the Raspberry Pi](http://ubuntu.com/raspberry-pi). What has me most excited me about this release its support for AMD64 on the Raspberry Pi 3 and 4.
 .
 
@@ -27,64 +29,6 @@ On October 22, 2020, Canonical released an [Ubuntu Desktop image optimized for t
 Ubuntu Desktop for Raspberry Pi
 
 Before installing Ubuntu, I am updating my Raspberry Pis to boot directly off USB without needing the microSD card installed.
-
-# Booting from a USB Drive
-
-In the fall of 2020, Raspberry Pi released the long-awaited Raspberry Pi 4 boot EEPROM to boot directly from a USB3 drive without having the MicroSD card plugged in. [Jeff Geerling](https://www.jeffgeerling.com/blog) has a blog and video showing the upgrade: [I'm booting my Raspberry Pi 4 from a USB SSD](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd).
-
-## Prepare the Raspbian microSD
-If you are updating multiple Raspberry Pis, like me, these steps only have to be done once to prepare the microSD card. Reuse the microSD on any Raspberry Pis that need the EEPROM update. Only the last two steps, “rpi-eeprom-update” and “vcgencmd,” get repeated after updating the first Raspberry Pi.
-
-Flash a MicroSD card with Raspbian. I use Raspbian lite, the server version. Be sure to add the ssh file after flashing.
-```shell
-touch /Volumes/boot/ssh
-```
-
-Eject the microSD, insert it into the Raspberry Pi, power it up, and wait a bit for it to come online. Use ping to find the IP address on your network.
-
-```shell
-ping -c 2 raspberrypi
-```
-
-Connect to the IP address using ssh, and log in as user “pi” using the password “raspberry.”
-
-## Updating the EEPROM
-
-If you have an older Raspberry Pi 4, you need to upgrade the boot loader EEPROM to enable booting from USB drives. Update Rasbian to get the latest boot loader, and then edit “/etc/default/rpi-eeprom-update” to allow the Pi to use the latest stable version.
-
-```shell
-sudo apt update
-sudo apt full-upgrade -y
-sudo vi /etc/default/rpi-eeprom-update
-```
-
-Change the status from “critical” to “stable.”
-
-{% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/firmware release_status.png" description="File rpi-eeprom-update" %}
-
-Now, find the latest EEPROM version. 
-
-```shell
-ls /lib/firmware/raspberrypi/bootloader/stable/pieeprom-*
-```
-
-{% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/eprom_versions.png" description="Stable EEPROM Versions" %}
-
-Install the latest one; in my case, that is 2020-09-03.
-```shell
-sudo rpi-eeprom-update -d -f /lib/firmware/raspberrypi/bootloader/stable/pieeprom-2020-09-03.bin
-```
-{% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/updating_eprom.png" description="Updating the EEPROM" %}
-
-Reboot, reconnect, then verify that the bootloader is up to date.
-```shell
-vcgencmd bootloader_version
-```
-{% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/verify_bootloader.png" description="Verify the Boot Loader Update" %}
-
-Use the same microSD card to update any other Raspberry Pis that need the new EEPROM. You only have to repeat the "rpi-eeprom-update" and "vcgencmd" steps for additional Raspberry Pi. Luckily, changing the boot firmware was a one-time change. 
-
-Now that the boot firmware is up-to-date let’s install Ubuntu. 
 
 # Setting up Ubuntu
 
@@ -201,7 +145,6 @@ That’s it. We’re now ready to install Rancher K3s Kubernetes. Here is the re
 
 ----
 # References
-* [I'm booting my Raspberry Pi 4 from a USB SSD](https://www.jeffgeerling.com/blog/2020/im-booting-my-raspberry-pi-4-usb-ssd)
 * https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview
 * https://www.youtube.com/watch?v=gJtZOlYR_MM
 * https://www.youtube.com/watch?v=0pT4-RcTERU
