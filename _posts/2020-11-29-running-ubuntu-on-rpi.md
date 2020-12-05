@@ -42,7 +42,7 @@ Plug a USB drive into your desktop or laptop. Open the Raspberry Pi Imager and s
 
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/ubuntu_flash.png" description="Flash the USB Drive with Ubuntu" %}
 
-Remount the USB drive after it finishes to add the ssh file. Notice, the Ubuntu USB drive mounts as “/Volumes/system-boot” instead of “/Volumes/boot” as the Raspbian does.
+Remount the USB drive after it finishes to add the ssh file. Notice, the Ubuntu USB drive mounts as “/Volumes/system-boot” instead of “/Volumes/boot” as the Raspbian image does.
 
 ```shell
 touch /Volumes/system-boot/ssh
@@ -126,7 +126,7 @@ sudo hostnamectl set-hostname pi1
 ```
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/hostname.png" description="Change the Hostname" %}
 
-## Adding SSH Key for Authentication
+## Adding your SSH Key for Authentication
 
 Add your computer’s SSH key to the host to avoid having to enter a password when you connect with SSH.
 
