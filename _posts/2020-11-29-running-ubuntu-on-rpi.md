@@ -130,14 +130,17 @@ sudo hostnamectl set-hostname pi1
 
 Add your computer’s SSH key to the host to avoid having to enter a password when you connect with SSH.
 
-{% include tip.html content="This tip shows how to set up SSH and multicast commands to all the nodes in the cluster: <a href='/how-to-multicast-commands'>How to Multicast Commands</a>. " %}
+{% include tip.html content="This tip shows how to set up SSH and multicast commands to all the nodes in the cluster: <a href='/how-to-multicast-commands'>Jump to the article</a>. " %}
 
 ```shell
 ssh-copy-id -i ~/.ssh/id_rsa.pub  ubuntu@pi1
 ```
 
-That’s it. We’re now ready to install Rancher K3s Kubernetes. Here is the result:
+That’s it. We’re now ready to re-install Rancher K3s Kubernetes. 
 
+{% include tip.html content="See my previous post on installing Rancher k3s on Raspbian. I made updates to cover Ubuntu.: <a href='/running-kubernetes-on-rpi'>Jump to the article</a>. " %}
+
+Here is the result:
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/UbuntuAMD64Pis.png" description="Ubuntu on Pis" %}
 
 ----
