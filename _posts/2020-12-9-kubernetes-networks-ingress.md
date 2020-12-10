@@ -87,7 +87,7 @@ Here are the step-by-step guides, if you are interested.
 
 {% include tip.html content="Learn how to expose a service with the Traefik ingress controller:  [Jump to the article](sidenote-expose-traefik-ingress)." %}
 
-Stay tuned for the next post about persistent storage on Raspberry Pi NAS using a 1Gb Samsung EVO SATA M.2.
+Stay tuned for the next post about persistent Kubernetes storage on my Raspberry Pi NAS using a 1 TB Samsung EVO SATA M.2.
 
 {% include image.html url="/img/post-assets/2020-12-9-ingress-controller/preview_nas.png" description="Raspberry Pi NAS" %}
 
