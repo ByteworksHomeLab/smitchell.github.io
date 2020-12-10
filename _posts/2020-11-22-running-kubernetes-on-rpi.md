@@ -11,8 +11,8 @@ author_avatar: steve
 show_avatar : false
 read_time : 5
 show_related_posts: false
-feature_image: feature-raspberry
-square_related: recommend-raspberry
+feature_image: feature-kubernetes
+square_related: recommend-kubernetes
 ---
 I loved trains as a boy, which may explain why I am running Kubernetes on Raspberry Pis for my home lab instead of in the cloud. Think of it like model railroading for computer geeks! In my earlier post, <a href="https://smitchell.github.io/how-to-configure-raspbian-linux">How to Configure Raspbian Linux</a>, we installed and configured Raspbian Linux on all the Raspberry Pis. Now it’s time to add Kubernetes.
 
