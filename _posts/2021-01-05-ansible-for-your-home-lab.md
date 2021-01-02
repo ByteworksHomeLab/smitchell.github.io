@@ -98,46 +98,8 @@ Ansible didn’t save me time today since I was learning Ansible as I went, but 
 
 Here is the whole playbook:
 
-```shell
----
-- hosts: "new_hosts"
-  gather_facts: false
-  become: yes
-  tasks:
-    - name: apt update and upgrade
-      apt:
-        update_cache: yes
-        upgrade: 'yes'
-    - name: Set a hostname
-      hostname:
-        name: '{{ new_host }}'
-    - name: Copy hosts file
-      template:
-        dest: /etc/hosts
-        src: new_hosts.j2
-        owner: root
-        group: root
-        mode: 0221
-    - name: Copy disable network config into place
-      copy:
-        dest: /etc/netplan/99-disable-network-config.cfg
-        src: new_hosts_99-disable-network-config.cfg
-        owner: root
-        group: root
-        mode: 0661
-    - name: Setup static IP
-      template:
-        dest: /etc/netplan/50-cloud-init.yaml
-        src: new_hosts_50-cloud-init.j2
-    - name: Apply netplan
-      command: sudo netplan apply
-      async: 45
-      poll: 0
-      ignore_errors: true
-    - name: Reboot machine
-      reboot:
-        test_command: ping -c 4 {{ new_ip }}
-```
+{% include image.html url="/img/post-assets/ansible-for-your-home-lab/playbook.png" description="Ansible Playbook" %}
+
 
 ----
 # References
