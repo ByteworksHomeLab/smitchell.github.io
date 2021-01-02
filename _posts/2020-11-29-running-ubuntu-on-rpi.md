@@ -98,7 +98,7 @@ network:
         nameservers:
           addresses: [192.168.1.1, 8.8.8.8]
         match:
-          :wdriver: bcmgenet smsc95xx lan78xx
+          driver: bcmgenet smsc95xx lan78xx
         optional: true
         set-name: eth0
 ```
@@ -125,6 +125,11 @@ Give the host a unique name. My cluster hostnames are pi1 - pi8. Use the hostnam
 sudo hostnamectl set-hostname pi1
 ```
 {% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/hostname.png" description="Change the Hostname" %}
+
+Be sure to add the hostname to your /etc/hosts file too.
+
+{% include image.html url="/img/post-assets/2020-11-29-running-ubuntu-on-rpi/etc-hosts.png" description="Add hostname to /etc/hosts" %}
+
 
 ## Adding your SSH Key for Authentication
 
