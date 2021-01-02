@@ -47,7 +47,7 @@ First, Ansible needs an inventory of the new hosts to set up, and my playbook re
 
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/inventory.png" description="Ansible Hosts Inventory with Variables" %}
 
-Each host in the “new_host” group is assigned a “new_ip” and “new_host” variable used by the Ansible playbook. You can see that the static IP address, 192.168.1.50, assigned to the first host, and its hostname is pi5. 
+Each host in the “new_host” group is assigned a “new_ip” and “new_host” variable used by the Ansible playbook. You can see that the static IP address, 192.168.1.50, is assigned to the first host, and its hostname is pi5. 
 ## Playbook
 My playbook includes seven tasks.
 
