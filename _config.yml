@@ -9,7 +9,7 @@ enable_retina: false
 permalink: :title
 nav_list:
   Home : ['Home', '/', 'fa-home']
-  About : ['About', '/about', 'fa-user']
+  About : ['About', '/about/', 'fa-user']
 single_footer: Exploring Cloud-native topics the fun way
 footer_links:
   About: ['About', '/about/']

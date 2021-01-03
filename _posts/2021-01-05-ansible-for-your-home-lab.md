@@ -26,6 +26,11 @@ There are nine Raspberry Pis in my home lab that started out running Raspbian, t
 Michael DeHaan released Ansible in 2012, and RedHat acquired it in 2015. It is an open-source tool written in python, power shell, and ruby that provisions infrastructure, networks, containers, security, cloud, and more. Ansible is one of the ways companies create infrastructure as code.
 
 It is easy to get started with Ansible because there is nothing to install on the target systems. Simply install it on your computer and start automating. Redhat sells Ansible Tower for the enterprise, but it is not required to use Ansible.
+
+I first used Ansible in 2016 when the startup where I worked rehosted our DC/OS (Data Center Operating System) cluster in the cloud. Our three-person team did a cloud bake-off to decide which cloud to use. I took GCP (Google Cloud Platform), which happened to have a DC/OS Ansible playbook. It made deploying DC/OS to GCP so easy that is what we decided to use. I wrote a post about it in my old blog: [Setting up DC/OS on Google Cloud Platform](https://exploringspatial.wordpress.com/2016/12/12/setting-up-dcos-on-google-cloud-platform/).
+
+Check out [How Ansible Works](https://www.ansible.com/overview/how-ansible-works) to learn more.
+
 # My First Ansible Playbook
 
 You can find my Ansible playbook and in this Github repository: [github.com/smitchell/ansible-home-lab](https://github.com/smitchell/ansible-home-lab). Its purpose is to automate the set-up of new nodes in my cluster. Not all my Raspberry Pis are Kubernetes nodes. One is the Network Attached Storage, and another is the Rancher Server, so I didn’t include the installation of Kubernetes in this playbook.
