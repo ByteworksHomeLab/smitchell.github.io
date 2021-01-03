@@ -31,7 +31,7 @@ I first used Ansible in 2016 when the startup where I worked rehosted our DC/OS 
 
 Check out [How Ansible Works](https://www.ansible.com/overview/how-ansible-works) to learn more.
 
-# My First Ansible Playbook
+# Home Lab Ansible Playbook
 
 You can find my Ansible playbook and in this Github repository: [github.com/smitchell/ansible-home-lab](https://github.com/smitchell/ansible-home-lab). Its purpose is to automate the set-up of new nodes in my cluster. Not all my Raspberry Pis are Kubernetes nodes. One is the Network Attached Storage, and another is the Rancher Server, so I didn’t include the installation of Kubernetes in this playbook.
 
