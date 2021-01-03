@@ -16,9 +16,9 @@ square_related: recommend-raspberry
 ---
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/ansible.png" %}
 
-Disaster struck in my home lab, again. This time I knocked a power cord loose on my USB power hub, taking down four of my Kubernetes nodes. That usually would not have been a “disaster,” but it broke the “sudo” command, and you can’t maintain Ubuntu without the sudo command. I complained about not resolving the hostname because I didn’t add the hostname to the /etc/hosts file when I changed the hostname earlier.
+Disaster struck in my home lab, again. This time I knocked a power cord loose on my USB power hub, taking down four of my Kubernetes nodes. That usually would not have been a “disaster,” but it broke the “sudo” command, and you can’t maintain Ubuntu without the sudo command. The sudo command complained that it couldn't resolve the hostname because I didn’t add the hostname to the /etc/hosts file when I changed the hostname earlier.
 
-There are nine Raspberry Pis in my home lab that started out running Raspbian, then Ubuntu, and I rebuilt them many times since starting in March of 2020. I decided now was a good time to add some automation.
+There are nine Raspberry Pis in my home lab that first ran Raspbian, then Ubuntu, and I rebuilt for other reasons along the way. I decided now was a good time to add some automation.
 
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/stack.png" description="Home Lab Raspberry Pis" %}
 
@@ -35,9 +35,7 @@ Check out [How Ansible Works](https://www.ansible.com/overview/how-ansible-works
 
 # Home Lab Ansible Playbook
 
-While I have had a few run-ins with Ansible, I never wrote playbooks until now. You can find my Ansible playbook in this Github repository: [github.com/smitchell/ansible-home-lab](https://github.com/smitchell/ansible-home-lab). Its purpose is to automate the set-up of new nodes in my cluster. Not all my Raspberry Pis are Kubernetes nodes. One is the Network Attached Storage, and another is the Rancher Server, so I didn’t include the installation of Kubernetes in this playbook.
-
-The steps to set-up Ubuntu on Raspberry Pi are covered in my previous post [Running Ubuntu on a Raspberry Pi Cluster](/running-ubuntu-on-rpi). Here they are:
+Despite using Ansible off and on since 2016, I never wrote playbooks until now. I set out to replace some of the manual setup I perform. The steps to set-up Ubuntu on Raspberry Pi are covered in my previous post [Running Ubuntu on a Raspberry Pi Cluster](/running-ubuntu-on-rpi). Here they are:
 
 1. Flash the drive with the Ubuntu server image.
 1. Add the ssh file.
@@ -48,13 +46,14 @@ The steps to set-up Ubuntu on Raspberry Pi are covered in my previous post [Runn
 1. Add the hostname to the /etc/hosts file.
 1. Set the static IP address.
 
-The Ansible playbook only handles the last four steps because I ran into a problem with the first login’s mandatory password change. Some Ansible playbooks use the sshpass command to change the password, but I could not install sshpass on my Mac using Brew.
+The Ansible playbook only handles the last four steps. I ran into a problem with the first login’s mandatory password change. Some Ansible playbooks use the sshpass command to change the password, but I could not install sshpass on my Mac using Brew. Long story.
 
 ## Inventory
-First, to set up, Ansible needs an inventory of the new hosts. My playbook requires a couple of variables for each. Using my network scanner, I found the DHCP network addresses of each new host as it booted and added them to the list. Next, I performed the manual steps of the setup. 
+First, to set up, Ansible needs an inventory of the new hosts. My playbook requires a couple of variables for each. Using my network scanner, I found the DHCP network addresses of each new host as it booted and added them to the list. Next, I performed the first four steps manually, as before. 
+
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/inventory.png" description="Ansible Hosts Inventory with Variables" %}
 
-Each host in the “new_host” group is assigned a “new_ip” and “new_host” variable used by the Ansible playbook. You can see that the static IP address, 192.168.1.50, is given to the first host, and its hostname is pi5.
+I assigned each host in the “new_host” group a “new_ip” and “new_host” variable, needed by my Ansible playbook. You can see that the static IP address, 192.168.1.50, is given to the first host, and its hostname is pi5.
 
 ## Playbook
 My playbook includes seven tasks.
