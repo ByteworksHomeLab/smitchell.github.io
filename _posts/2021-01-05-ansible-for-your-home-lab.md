@@ -10,9 +10,9 @@ author_url : /author/steve
 author_avatar: steve
 show_avatar : false
 read_time : 10
-feature_image: feature-raspberry
+feature_image: feature-spring
 show_related_posts: false
-square_related: recommend-raspberry
+square_related: recommend-spring
 ---
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/ansible.png" %}
 
