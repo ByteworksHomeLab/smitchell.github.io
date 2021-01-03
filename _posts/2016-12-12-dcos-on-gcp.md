@@ -10,9 +10,9 @@ author_url : /author/steve
 author_avatar: steve
 show_avatar : false
 read_time : 15
-feature_image: feature-architecture
+feature_image: feature-spring
 show_related_posts: false
-square_related: recommend-architecture
+square_related: recommend-spring
 ---
 {% include image.html url="/img/post-assets/dcos-on-gcp/dcos_gcp.png" %}
 
