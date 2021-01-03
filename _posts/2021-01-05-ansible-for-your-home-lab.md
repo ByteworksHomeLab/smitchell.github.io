@@ -46,14 +46,14 @@ Despite using Ansible off and on since 2016, I never wrote playbooks until now. 
 1. Add the hostname to the /etc/hosts file.
 1. Set the static IP address.
 
-The Ansible playbook only handles the last four steps. I ran into a problem with the first login’s mandatory password change. Some Ansible playbooks use the sshpass command to change the password, but I could not install sshpass on my Mac using Brew. Long story.
+My Ansible playbook only handles the last four steps. I ran into a problem with the first login’s mandatory password change. Some Ansible playbooks use the sshpass command to change the password, but I could not install sshpass on my Mac using Brew. Long story.
 
 ## Inventory
-First, to set up, Ansible needs an inventory of the new hosts. My playbook requires a couple of variables for each. Using my network scanner, I found the DHCP network addresses of each new host as it booted and added them to the list. Next, I performed the first four steps manually, as before. 
+First, to set up, Ansible needs an inventory of the new hosts. My playbook requires a couple of variables for each host. Using my network scanner, I found the DHCP addresses of the new host as it booted and added the host IP address to the list. Next, I performed the first four setup steps manually, just as before. 
 
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/inventory.png" description="Ansible Hosts Inventory with Variables" %}
 
-I assigned each host in the “new_host” group a “new_ip” and “new_host” variable, needed by my Ansible playbook. You can see that the static IP address, 192.168.1.50, is given to the first host, and its hostname is pi5.
+Each host in the “new_host” group gets a “new_ip” and “new_host” variable, needed by my Ansible playbook. In the image above, you see that the static IP address, 192.168.1.50, is given to the first host, and its hostname is pi5.
 
 ## Playbook
 My playbook includes seven tasks.
