@@ -20,9 +20,9 @@ My [previous post](https://exploringspatial.wordpress.com/2016/12/11/collaborati
 
 # Create the DC/OS Bootstrap Machine
 The bootstrap machine is where [DC/OS](https://dcos.io/) install artifacts are configured, built, and distributed. The instructions for Google Cloud Platform rely on Ansible scripts from a [dcos-labs project on GitHub](https://github.com/dcos-labs/dcos-gce). At the time of this writing, the GCE set-up page in the DC/OS 1.8 Administrative guide was a little out of sync with the project README file, so I followed the [GitHub README](https://github.com/dcos-labs/dcos-gce/blob/master/README.md) file instead.
-Start from the Google Cloud Platform dashboard. Make sure the Google Cloud Platform project that you created for DC/OS is selected. Click the "hamburger" menu icon in the upper left corner of the page and then choose Compute Engine from the menu. You need an "n1-standard-1" instance running Centos 7 on a 10 GB disk. Follow the README instructions carefully on how to configure this new VM instance.
+Start from the Google Cloud Platform dashboard. Make sure the Google Cloud Platform project that you created for DC/OS is selected. Click the "hamburger" menu icon in the upper left corner of the page and then choose Compute Engine from the menu. You need an "n1-standard-1" instance running Centos 7 with a 10 GB disk. Follow the README instructions carefully on how to configure this new VM instance.
 
-#Connecting to the DC/OS Bootstrap Instance
+# Connecting to the DC/OS Bootstrap Instance
 Once the DC/OS bootstrap instance starts, it will appear on the GCE VM Instance page with a green checkmark to the left of its name. To connect to the machine, either download the [Cloud SDK](https://cloud.google.com/sdk/) to your desktop computer or activate [Google Cloud Shell](https://cloud.google.com/shell/docs/starting-cloud-shell) from the >_  icon toward the right side of the page header.
 
 {% include image.html url="/img/post-assets/dcos-on-gcp/shell_icon.png" description="Shell Icon on GCP Page Header"%}
@@ -35,7 +35,7 @@ After connecting to the DC/OS Bootstrap instance, follow the instructions in the
 Ensure the IP address for master0 in ./hosts is the next consecutive IP from bootstrap_public_ip.
 # Defining the Master Node(s)
 The number of master nodes is permanent, so if you change your mind, you must reinstall the cluster. It takes a quorum to determine its leader, so choose an odd number of nodes to avoid a "split-brain" situation.
-It is common to use three master nodes; however, it only allows eight CPUs if you are using the Google Cloud Platform free trial. I tested with a single 2-CPU master node, two 2-CPU private agent nodes, and one 2-CPU public agent node.
+It is common to use three master nodes; however, GCP only allows eight CPUs if you are using the Google Cloud Platform free trial. I tested with a single 2-CPU master node, two 2-CPU private agent nodes, and one 2-CPU public agent node.
 The "hosts" file defines the number of master nodes in the DC/OS cluster. The master nodes’ IP addresses should be contiguous addresses from the IP address of the bootstrap machine. Here is an example of a three-node cluster.
 
 ```shell
