@@ -23,7 +23,7 @@ There are nine Raspberry Pis in my home lab that first ran Raspbian, then Ubuntu
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/stack.png" description="Home Lab Raspberry Pis" %}
 
 # Ansible
-Ansible is an open-source tool written in python, power shell, and ruby to provision infrastructure, networks, containers, security, cloud, and more. Terraform and Ansible are two of the tools many companies create infrastructure as code. 
+Ansible is an open-source tool written in python, power shell, and ruby to provision infrastructure, networks, containers, security, cloud, and more. Terraform and Ansible are two of the tools many companies use to create infrastructure as code. 
 
 It is easy to get started with Ansible because there is nothing to install on the target systems. Simply install it on your computer and start automating. Redhat sells Ansible Tower for the enterprise, but it is not required to use Ansible. Check out [How Ansible Works](https://www.ansible.com/overview/how-ansible-works) to learn more about Ansible.
 
@@ -33,7 +33,7 @@ I first used Ansible in 2016 when the startup where I worked migrated our DC/OS 
 
 # Home Lab Ansible Playbook
 
-Despite using Ansible off and on since 2016, I never needed to write my own playbooks. This home lab outage is my excuse to automate some tasks using Ansible. My previous post, [Running Ubuntu on a Raspberry Pi Cluster](/running-ubuntu-on-rpi), details the steps to set-up Ubuntu on a Raspberry Pi:
+Despite using Ansible off and on since 2016, I never needed to write my own playbooks. This home lab outage is my excuse to automate some tasks using Ansible. My previous post, [Running Ubuntu on a Raspberry Pi Cluster](/running-ubuntu-on-rpi), details the eight steps to set-up Ubuntu on a Raspberry Pi:
 
 1. Flash the drive with the Ubuntu server image.
 1. Add the ssh file.
@@ -44,10 +44,10 @@ Despite using Ansible off and on since 2016, I never needed to write my own play
 1. Add the hostname to the /etc/hosts file.
 1. Set the static IP address.
 
-My Ansible playbook only handles the last four steps because I ran into a problem with the first login’s mandatory password change. I found playbooks using the sshpass command to handle the initial password change, but I could not install sshpass on my Mac. Long story.
+My Ansible playbook only handles the last four steps because I ran into a problem with step three, the first login’s mandatory password change. I found playbooks using the sshpass command to handle the initial password change, but I could not install sshpass on my Mac. Long story. So, I still do step three manually, as well as step four, adding the SSH certificate to the host.
 
 ## Inventory
-Ansible needs an inventory of the target hosts for a playbook. Plus, my playbook requires a couple of variables for each host in the inventory. I found the DHCP addresses of each new host as it booted using my network scanner software, then added each host IP address to the list.
+Ansible needs an inventory of the target hosts for a playbook. Plus, my playbook requires a couple of variables for each host in the inventory. I find the DHCP address of each new host as it boots using my network scanner software, then add the IP address to the list.
 
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/inventory.png" description="Ansible Hosts Inventory with Variables" %}
 
