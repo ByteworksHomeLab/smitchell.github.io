@@ -18,7 +18,7 @@ square_related: recommend-raspberry
 
 Disaster struck in my home lab, again. This time I knocked a power cord loose on my USB power hub, taking down four of my Kubernetes nodes. That usually would not have been a “disaster,” but it broke the “sudo” command, and you can’t maintain Ubuntu without the sudo command. The sudo command complained that it couldn't resolve the hostname because I didn’t add the hostname to the /etc/hosts file when I changed the hostname earlier.
 
-There are nine Raspberry Pis in my home lab that first ran Raspbian, then Ubuntu, and I rebuilt for other reasons along the way. I decided rather do yet another manual re-install, now is a good time to add some automation.
+There are nine Raspberry Pis in my home lab that first ran Raspbian, then Ubuntu, and I rebuilt for other reasons along the way. I decided that rather than do yet another manual re-install, now is a good time to add some automation.
 
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/stack.png" description="Home Lab Raspberry Pis" %}
 
