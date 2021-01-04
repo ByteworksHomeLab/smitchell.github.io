@@ -29,7 +29,7 @@ It is easy to get started with Ansible because there is nothing to install on th
 
 I first used Ansible in 2016 when the startup where I worked rehosted our DC/OS (Data Center Operating System) cluster in the cloud. Our three-person team did a cloud bake-off to decide which cloud to use. I took GCP (Google Cloud Platform), which happened to have a DC/OS Ansible playbook. It made deploying DC/OS to GCP so easy, and therefore we decided to use it.
 
-{% include tip.html content="Learn how we deployed DC/OS to GCP using Ansible: <a href='/dcos-on-gcp'>Jump to the article</a>." %}
+{% include tip.html content="Learn how we deployed DC/OS to GCP using Ansible: <a href='/dcos-on-gcp'>Jump to my 2016 post</a>." %}
 
 Check out [How Ansible Works](https://www.ansible.com/overview/how-ansible-works) to learn more.
 
