@@ -23,7 +23,7 @@ There are nine Raspberry Pis in my home lab that first ran Raspbian, then Ubuntu
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/stack.png" description="Home Lab Raspberry Pis" %}
 
 # Ansible
-Ansible is an open-source tool written in python, power shell, and ruby to provision infrastructure, networks, containers, security, cloud, and more. Terraform and Ansible are two of the tools many companies use to create infrastructure as code. 
+Ansible is an open-source tool written in python, power shell, and ruby to provision infrastructure, networks, containers, security, cloud, and more. Terraform and Ansible are two of the tools used for creating infrastructure-as-code. 
 
 It is easy to get started with Ansible because there is nothing to install on the target systems. Simply install it on your computer and start automating. Redhat sells Ansible Tower for the enterprise, but it is not required to use Ansible. Check out [How Ansible Works](https://www.ansible.com/overview/how-ansible-works) to learn more about Ansible.
 
@@ -54,7 +54,7 @@ Ansible needs an inventory of the target hosts for a playbook. Plus, my playbook
 Each host in the “new_host” group gets a “new_ip” and “new_host” variable, that are passed into my Ansible playbook. In the image above, you see that the static IP address, 192.168.1.50, is given to the first host, and its hostname is pi5. Before executing my playbook, I performed the first four Raspberry Pi setup steps manually, just as before.
 
 ## Ansible Playbooks
-My playbook picks up after step four, automating setup steps five through eight. It does this using seven separate Ansible tasks. There are hundreds of pre-build Ansible modules available to use in your tasks, whether you need to copy a file, or deploy an application to the cloud. Checkout the [Ansible Module index](https://docs.ansible.com/ansible/2.8/modules/modules_by_category.html) to see the complete list. These are seven Ansible task in my playbook.
+My playbook picks up after step four, automating setup steps five through eight. It does this using seven separate Ansible tasks. There are hundreds of pre-built Ansible modules available to use in your tasks, whether you need to copy a file, or deploy an application to the cloud. Checkout the [Ansible Module index](https://docs.ansible.com/ansible/2.8/modules/modules_by_category.html) to see the complete list. These are the seven Ansible tasks in my playbook.
 
 1. Update Ubuntu.
 1. Change the hostname.
