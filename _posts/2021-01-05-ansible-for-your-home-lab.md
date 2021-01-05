@@ -47,7 +47,7 @@ Despite using Ansible off and on since 2016, I never needed to write my own play
 My Ansible playbook only handles the last four steps because I ran into a problem with step three, the first login’s mandatory password change. I found playbooks using the sshpass command to handle the initial password change, but I could not install sshpass on my Mac. Another long story. So, I still do step three manually, as well as step four, adding the SSH certificate to the host.
 
 ## Inventory
-Ansible needs an inventory of the target hosts for a playbook. Plus, my playbook requires a couple of variables for each host in the inventory. I find the DHCP address of each new host as it boots using my network scanner software, then add the IP address to the list.
+Ansible needs an inventory of the target hosts for a playbook. I find the DHCP address of each new host as it boots using my network scanner software, then add the IP address to the list.
 
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/inventory.png" description="Ansible Hosts Inventory with Variables" %}
 
