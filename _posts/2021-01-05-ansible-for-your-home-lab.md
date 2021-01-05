@@ -51,7 +51,7 @@ Ansible needs an inventory of the target hosts for a playbook. Plus, my playbook
 
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/inventory.png" description="Ansible Hosts Inventory with Variables" %}
 
-Each host in the “new_host” group gets a “new_ip” and “new_host” variable, that are passed into my Ansible playbook. In the image above, you see that the static IP address, 192.168.1.50, is given to the first host, and its hostname is pi5. Before executing my playbook, I performed the first four Raspberry Pi setup steps manually, just as before.
+Each host in the inventory group gets a “new_ip” and “new_host” variable, that are passed into my Ansible playbook. In the image above, you see that the static IP address, 192.168.1.50, is given to the first host, and its hostname is pi5.
 
 ## Ansible Playbooks
 My playbook picks up after step four, automating setup steps five through eight. It does this using seven separate Ansible tasks. There are hundreds of pre-built Ansible modules available to use in your tasks, whether you need to copy a file, or deploy an application to the cloud. Checkout the [Ansible Module index](https://docs.ansible.com/ansible/2.8/modules/modules_by_category.html) to see the complete list. These are the seven Ansible tasks in my playbook.
