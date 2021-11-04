@@ -38,7 +38,7 @@ What if you need more? Do you go Cloud or on-premises? That depends on your requ
 ## Cloud
 If you want to spin up short-lived clusters in the Cloud to avoid costs, I recommend using Terraform and Ansible for IaC (Infrastructure as Code). IoC lets you create and destroy Kubernetes clusters on a whim. As an application developer, I don’t have to use Terraform and Ansible much at work, but I use them in my lab.
 ## On-premises
-If you need long-lived K8S clusters, for instance, to run <a href="https://www.youtube.com/watch?v=icyTnoonRqI">home automation with Home Assistant</a>, you should to find a multi-core, high-memory machine to do virtualization. I bought an old dual-Xeon HP Z620 Workstation with 8-cores and 64 GB of RAM for cheap. 
+If you need long-lived K8S clusters, for instance, to run <a href="https://www.youtube.com/watch?v=icyTnoonRqI">home automation with Home Assistant</a>, you should find a multi-core, high-memory machine to do virtualization. I bought an old dual-Xeon HP Z620 Workstation with 8-cores and 64 GB of RAM for cheap. 
 
 {% include tip.html content="When I reimaged my $399, 8-year old workstation, the Centos and EXSi installations warned that support for its firmware may end in an upcoming release. Maybe you should spend a little more money for something a little less vintage. 😊" %}
 
