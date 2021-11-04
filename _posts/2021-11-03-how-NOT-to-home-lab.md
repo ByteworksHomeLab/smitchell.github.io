@@ -63,7 +63,7 @@ As you can see in the illustration below, the guest OSs have direct access to th
 ## Choosing an On-premises Hypervisor
 If the purpose of your lab is to help you in your current job, and you work for a company that runs VMware, Microsoft, Citrix, or Red Hat virtualization products, you should build something that mirrors your work environment. 
 
-You will have to deal with licensing, though. As I mentioned, if you buy the VMUG Advantage membership, you get access to all the VMware products for $200/year. Please see the VMware compatibility matrix to find the proper hardware.
+You will have to deal with licensing, though. As I mentioned, if you buy the VMUG Advantage membership, you get access to all the VMware products for $200/year. Please see the <a href="https://www.vmware.com/resources/compatibility/search.php">VMware compatibility matrix</a> to find the proper hardware.
 
 If you don’t need a commercial hypervisor because of work, you should use Proxmox or KVM. Proxmox has a built-in GUI, if you don’t want to use the KVM CLI,  you can add the <a href="https://virt-manager.org">Virt-Manager</a> or Cockpit GUIs with KVM.
 
