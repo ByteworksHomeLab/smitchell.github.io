@@ -32,7 +32,7 @@ There are lots of ways to “home lab” when it comes to Kubernetes. The quicke
 * <a href="https://github.com/minishift/minishift">MiniShift</a> - A fork of MiniKube for running OpenShift.
 * <a href="https://rancherdesktop.io">Rancher Desktop</a> - Rancher Desktop is an alternative to Docker Engine that runs K3S.
 * <a href="https://tanzucommunityedition.io">Tanzu Community Edition</a> - Tanzu Kubernetes Engine that runs on Kind.
-* For virtualization there is Vagrant, VirtualBox, VMWare Fusion, VMWare Workstation, and more.
+* For virtualization there is Vagrant, VirtualBox, VMware Fusion, VMware Workstation, and more.
 
 You can stop reading here if some combination of these desktop tools satisfies your home lab needs. Desktop containerization/virtualization is the simplest, least costly option for learning at home.
 
@@ -44,7 +44,7 @@ If you need long-lived K8S clusters, for instance, to run <a href="https://www.y
 ## Hypervisors
 There are two types of hypervisor to do virtualization: type-1 or type-2.
 ### Type-1 Hypervisors
-Type-1 hypervisors run directly on bare metal and offer the best performance. Examples of type-1 hypervisors are VMWare ESXi, Red Hat Virtualization Server, Microsoft Hyper V, and Citrix Xen. Open source Xen was a popular type-1 hypervisor in the early days of virtualization. KMS has largely supplanted Xen. Other than open-source Xen, the rest are commercial products, so you’ll need to determine the product licensing. For example, if you buy the <a href="https://www.vmug.com/membership/vmug-advantage-membership/">VMWare User Group Advantage</a> membership for $200/year, you can access all the VMWare enterprise products (with use restrictions).
+Type-1 hypervisors run directly on bare metal and offer the best performance. Examples of type-1 hypervisors are VMware ESXi, Red Hat Virtualization Server, Microsoft Hyper V, and Citrix Xen. Open source Xen was a popular type-1 hypervisor in the early days of virtualization. KMS has largely supplanted Xen. Other than open-source Xen, the rest are commercial products, so you’ll need to determine the product licensing. For example, if you buy the <a href="https://www.vmug.com/membership/vmug-advantage-membership/">VMware User Group Advantage</a> membership for $200/year, you can access all the VMware enterprise products (with use restrictions).
 
 The illustration below shows that with type-1, the hypervisor and OS are the same. 
 
@@ -52,7 +52,7 @@ The illustration below shows that with type-1, the hypervisor and OS are the sam
 ## Type-2 Hypervisors
 There are many open-source type-2 hypervisors available for your home lab, but they are slower since they run on top of the OS.  You typically don’t see companies run VirtualBox, a type-2 hypervisor, in production because of its slow performance, but it is well suited for home lab applications. 
 
-Other type-2 hypervisors include VMWare Workstation/Fusion/Player and Microsoft Virtual PC. VirtualBox seems to be the most popular, with lots of prebuilt images available online.
+Other type-2 hypervisors include VMware Workstation/Fusion/Player and Microsoft Virtual PC. VirtualBox seems to be the most popular, with lots of prebuilt images available online.
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/Type 2 Hypervisor.png" description="Type-2 Hyperviso.png"%}
 ## KVM Hypervisor
@@ -61,7 +61,7 @@ Then there is the KVM hypervisor, which is a mix of type-1 and type-2 hypervisor
 As you can see in the illustration below, the guest OSs have direct access to the KVM hypervisor. The overhead is as little as 5%. It also has an extensive CLI, so it is well suited for automation with tools like Terraform.
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/KVM Architecture.png" description="KVM Hypervisor" %}
 ## Choosing an On-premises Hypervisor
-If the purpose of your lab is to help you in your current job, and you work for a company that runs VMWare, Microsoft, Citrix, or Red Hat virtualization products, you should build something that mirrors your work environment. 
+If the purpose of your lab is to help you in your current job, and you work for a company that runs VMware, Microsoft, Citrix, or Red Hat virtualization products, you should build something that mirrors your work environment. 
 
 You will have to deal with licensing, though. As I mentioned, if you buy the VMUG Advantage membership, you get access to all the VMware products for $200/year. Please see the VMware compatibility matrix to find the proper hardware.
 
