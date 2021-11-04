@@ -32,7 +32,7 @@ There are lots of ways to “home lab” when it comes to Kubernetes. The quicke
 * <a href="https://tanzucommunityedition.io">Tanzu Community Edition</a> - Tanzu Kubernetes Engine that runs on Kind.
 * For virtualization there is Vagrant, VirtualBox, VMware Fusion, VMware Workstation, and more.
 
-You can stop reading here if some combination of these desktop tools satisfies your home lab needs. Desktop containerization/virtualization is the simplest, least costly option for learning at home.
+Desktop containerization/virtualization is the simplest, least costly option for learning at home. You can stop reading here if some combination of these desktop tools satisfies your home lab needs.
 
 What if you need more? Do you go Cloud or on-premise? That depends on your requirements.
 ## Cloud
