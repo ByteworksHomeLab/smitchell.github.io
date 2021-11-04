@@ -38,7 +38,10 @@ What if you need more? Do you go Cloud or on-premises? That depends on your requ
 ## Cloud
 If you want to spin up short-lived clusters in the Cloud to avoid costs, I recommend using Terraform and Ansible for IaC (Infrastructure as Code). IoC lets you create and destroy Kubernetes clusters on a whim. As an application developer, I don’t have to use Terraform and Ansible much at work, but I use them in my lab.
 ## On-premises
-If you need long-lived K8S clusters, for instance, to run <a href="https://www.youtube.com/watch?v=icyTnoonRqI">home automation with Home Assistant</a>, you should to find a multi-core, high-memory machine to do virtualization. I bought an old dual-Xeon HP Z620 Workstation with 8-cores and 64 GB of RAM for cheap. I may need one or two more (see end of post).
+If you need long-lived K8S clusters, for instance, to run <a href="https://www.youtube.com/watch?v=icyTnoonRqI">home automation with Home Assistant</a>, you should to find a multi-core, high-memory machine to do virtualization. I bought an old dual-Xeon HP Z620 Workstation with 8-cores and 64 GB of RAM for cheap. 
+
+{% include tip.html content="When I reimaged my $399, 8-year old workstation, the Centos and EXSi installations warned that support for its firmware may end in an upcoming release. Maybe you should spend a little more money for something a little less vintage. 😊" %}
+
 ## Hypervisors
 There are two types of hypervisor to do virtualization: type-1 or type-2.
 ### Type-1 Hypervisors
@@ -65,7 +68,7 @@ You will have to deal with licensing, though. As I mentioned, if you buy the VMU
 
 If you don’t need a commercial hypervisor for work, you should use Proxmox or KVM. Proxmox has a built-in GUI, or if you go with native KVM, and don’t want to use the KVM CLI, you can add the <a href="https://virt-manager.org">Virt-Manager</a> or <a href="https://cockpit-project.org">Cockpit</a> GUI on top of KVM.
 
-I started out with Centos 8 on my HP z620 Workstation with the Cockpit GUI. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how that looked with the Cockpit GUI. 
+I started out with Centos 8 on my HP Z620 Workstation with the Cockpit GUI. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how that looked with the Cockpit GUI. 
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/cockpit.png" description="KVM with Cockpit"%}
 
