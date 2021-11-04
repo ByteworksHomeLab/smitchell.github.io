@@ -104,6 +104,36 @@ Here is the whole playbook:
 
 {% include image.html url="/img/post-assets/ansible-for-your-home-lab/playbook.png" description="Ansible Playbook" %}
 
+# Putting it all together
+
+I modeled this project after [Jakub Skałecki's](https://rock-it.pl/author/jakub/) project in GitHub: [github.com/Valian/ansible-multienv-base](https://github.com/Valian/ansible-multienv-base). With this layout.
+
+```shell
+|- hosts
+|  |- shared-secrets.yml  # encrypted vars, used in all environments
+|  |- shared-vars.yml     # not encrypted vars, used in all environments
+|  |- prod                # directory for prod environment
+|  |  |- inventory        # inventory file with definitions of all required hosts
+|  |  |- secrets.yml      # encrpted vars for this environment
+|  |  |- groups_vars
+|  |     |- all.yml       # normal group_vars, like in typical ansible project
+|  |- test                # directory for test environment
+|     |- inventory
+|     |- secrets.yml
+|     |- groups_vars
+|        |- all.yml
+|- roles                  # all ansible roles used in playbooks
+|  |- role1
+|     |- ...
+|- playbook1.yml          # here we put our playbooks
+```
+
+My new servers are setup in the /hosts/test/inventory file, and my playbooks are at the root of the project. From the root of the project I run this command to setup the new hosts:
+
+```shell
+ansible-playbook -i hosts/test/inventory setup_new_hosts.yml
+```
+
 ----
 # References
 * [Ansible Documentation](https://docs.ansible.com/?extIdCarryOver=true&sc_cid=701f2000001OH7YAAW)

@@ -36,6 +36,8 @@ Connect to the IP address using ssh, and log in as user “pi” using the passw
 
 If you have an older Raspberry Pi 4, you need to upgrade the boot loader EEPROM to enable booting from USB drives. Update Rasbian to get the latest boot loader, and then edit “/etc/default/rpi-eeprom-update” to allow the Pi to use the latest stable version.
 
+{% include warning.html content="If you are installing Ubuntu, then follow <a href='https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#4-optional-usb-b'> Ubuntu\'s instructions for booting from USB</a>." %}
+
 ```shell
 sudo apt update
 sudo apt full-upgrade -y
