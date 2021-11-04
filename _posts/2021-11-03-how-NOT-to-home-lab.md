@@ -68,13 +68,20 @@ You will have to deal with licensing, though. As I mentioned, if you buy the VMU
 
 If you don’t need a commercial hypervisor for work, you should use Proxmox or KVM. Proxmox has a built-in GUI, or if you go with native KVM, and don’t want to use the KVM CLI, you can add the <a href="https://virt-manager.org">Virt-Manager</a> or <a href="https://cockpit-project.org">Cockpit</a> GUI on top of KVM.
 
-I started out with Centos 8 on my HP Z620 Workstation with the Cockpit GUI. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how that looked with the Cockpit GUI. 
+{% include tip.html content="Robert Sirchia (<a href='https://twitter.com/robertsirc'>@robertsirc</a>), Senior Technical Evangelist at SUSE, made a suggestion for this blog. Robert recommends you give <a href='https://community.suse.com/posts/harvester-intro-and-setup'>Harvester</a> a try." %}
+
+According to the <a href="https://docs.harvesterhci.io">Harvester site</a>, "Harvester is an open-source hyper-converged infrastructure (HCI) software built on Kubernetes. It is an open alternative to using a proprietary HCI stack that incorporates the design and ethos of Cloud Native Computing."
+
+Harvester looks really nice. I will definitely give it a try.
+
+{% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/create-vm.png" description="Harvester GUI"%}
+
+I wasn't aware of Harvester when I originally imaged my HP Z620 Workstation, so I went with Centos and Cockpit. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how it looked with the Cockpit GUI. 
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/cockpit.png" description="KVM with Cockpit"%}
 
 Many of my employer's customers are VMware customers too, so it is in my best interest to buy the VMUG Advantage membership and install vCenter. That takes a lot more work than KVM, but I hope it is worth it in the long run. The only caveat is that Tanzu on vSphere (specifically HAProxy for Tanzu) requires <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-C3048E95-6E9D-4AC3-BE96-44446D288A7D.html#GUID-C3048E95-6E9D-4AC3-BE96-44446D288A7D">three ESXi hosts with 8-cores and 64 GB RAM</a>. Yikes!
 
-
-This is why I concluded running Tanzu is going to jack-up the cost of my home lab. I’ll post an update when Tanzu is running in my lab.
+I'll close with a screenshot of what made me realize that Tanzu is going to jack-up the cost of my home lab. I’ll post an update when Tanzu is up and running.
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/haproxy_requirements.png" description="Tanzu HAProxy Requirements"%}
