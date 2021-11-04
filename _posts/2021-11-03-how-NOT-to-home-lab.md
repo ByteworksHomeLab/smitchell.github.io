@@ -36,7 +36,7 @@ Desktop containerization/virtualization is the simplest, least costly option for
 
 What if you need more? Do you go Cloud or on-premises? That depends on your requirements.
 ## Cloud
-If you want to spin up short-level clusters in the Cloud to save costs, I recommend using Terraform and Ansible for IaC (Infrastructure as Code). IoC lets you create and destroy Kubernetes clusters on a whim. As an application developer, I don’t have to use Terraform and Ansible much at work, but I use them in my lab.
+If you want to spin up short-level clusters in the Cloud to avoid costs, I recommend using Terraform and Ansible for IaC (Infrastructure as Code). IoC lets you create and destroy Kubernetes clusters on a whim. As an application developer, I don’t have to use Terraform and Ansible much at work, but I use them in my lab.
 ## On-premises
 If you need long-lived K8S clusters, for instance, to run <a href="https://www.youtube.com/watch?v=icyTnoonRqI">home automation with Home Assistant</a>, you should to find a multi-core, high-memory machine to do virtualization. I bought an old dual-Xeon HP Z620 Workstation with 8-cores and 64 GB of RAM for cheap. I may need one or two more (see end of post).
 ## Hypervisors
