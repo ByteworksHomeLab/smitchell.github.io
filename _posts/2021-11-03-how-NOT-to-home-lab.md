@@ -63,15 +63,15 @@ If the purpose of your lab is to help you in your current job, and you work for 
 
 You will have to deal with licensing, though. As I mentioned, if you buy the VMUG Advantage membership, you get access to all the VMware products for $200/year. Please see the <a href="https://www.vmware.com/resources/compatibility/search.php">VMware compatibility matrix</a> to find the proper hardware.
 
-If you don’t need a commercial hypervisor for work, you should use Proxmox or KVM. Proxmox has a built-in GUI, or if you go with native KVM, and don’t want to use the KVM CLI, you can add the <a href="https://virt-manager.org">Virt-Manager</a> or <a href="https://cockpit-project.org">Cockpit</a> GUI on top KVM.
+If you don’t need a commercial hypervisor for work, you should use Proxmox or KVM. Proxmox has a built-in GUI, or if you go with native KVM, and don’t want to use the KVM CLI, you can add the <a href="https://virt-manager.org">Virt-Manager</a> or <a href="https://cockpit-project.org">Cockpit</a> GUI on top of KVM.
 
-I started out with Centos 8 on my HP Z620 with the Cockpit GUI. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how that looked with the Cockpit GUI. 
+I started out with Centos 8 on my HP z620 Workstation with the Cockpit GUI. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how that looked with the Cockpit GUI. 
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/cockpit.png" description="KVM with Cockpit"%}
 
-Many of my employer's customers are VMware customers too, so it is in my best interest to buy the VMUG Advantage membership and install vCenter. That takes a lot more work than KVM, but I hope it is worth it in the long run. The only caveat is that Tanzu on vSphere (specifically HAProxy for Tanzu) requires <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-C3048E95-6E9D-4AC3-BE96-44446D288A7D.html#GUID-C3048E95-6E9D-4AC3-BE96-44446D288A7D">three ESXi hosts with 8-cores and 64 GB RAM</a>. Yikes! This better pay off with customers next year! 
+Many of my employer's customers are VMware customers too, so it is in my best interest to buy the VMUG Advantage membership and install vCenter. That takes a lot more work than KVM, but I hope it is worth it in the long run. The only caveat is that Tanzu on vSphere (specifically HAProxy for Tanzu) requires <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-C3048E95-6E9D-4AC3-BE96-44446D288A7D.html#GUID-C3048E95-6E9D-4AC3-BE96-44446D288A7D">three ESXi hosts with 8-cores and 64 GB RAM</a>. Yikes!
 
 
-Here is the information that is really going to jack-up the cost of my home lab. I’ll post an update when Tanzu is running in my lab.
+This is why I concluded running Tanzu is going to jack-up the cost of my home lab. I’ll post an update when Tanzu is running in my lab.
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/haproxy_requirements.png" description="Tanzu HAProxy Requirements"%}
