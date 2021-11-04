@@ -65,7 +65,7 @@ You will have to deal with licensing, though. As I mentioned, if you buy the VMU
 
 If you don’t need a commercial hypervisor for work, you should use Proxmox or KVM. Proxmox has a built-in GUI, or if you go with native KVM, and don’t want to use the KVM CLI, you can add the <a href="https://virt-manager.org">Virt-Manager</a> or <a href="https://cockpit-project.org">Cockpit</a> GUI on top KVM.
 
-I started out with Centos 8 on my HP Z620 with the Cockpit GUI. It used a bridge network, so all my physical and virtual machines shared the same subnet. Here is how that looked with the Cockpit GUI. 
+I started out with Centos 8 on my HP Z620 with the Cockpit GUI. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how that looked with the Cockpit GUI. 
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/cockpit.png" description="KVM with Cockpit"%}
 
