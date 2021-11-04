@@ -18,9 +18,7 @@ square_related: feature-kubernetes
 
 I learned how not to build a home lab. You should avoid small machines and go with big, multiprocessor machines with fast hypervisors, that is, unless you enjoy finding new ways to use Raspberry Pis.
 
-In 2020, I built a bare-metal home lab consisting of a Raspberry Pi K3S Kubernetes cluster and a cluster of Mac Minis.
-
-The problem with bare metal is that it is inflexible and can get expensive over time. Running Kubernetes on Raspberry Pis was fun, but eventually, I needed more clusters running different Kubernetes distributions. It was time to re-think my home lab strategy.
+In 2020, I built a bare-metal home lab consisting of a Raspberry Pi K3S Kubernetes cluster and a cluster of Mac Minis. Running Kubernetes on Raspberry Pis was fun, but eventually, I needed more clusters running different Kubernetes distributions. The problem with bare metal is that it is inflexible and can get expensive over time. It was time to re-think my home lab strategy.
 
 There are lots of ways to “home lab” when it comes to Kubernetes. The quickest way to get started is using your desktop/laptop and any of these tools:
 
