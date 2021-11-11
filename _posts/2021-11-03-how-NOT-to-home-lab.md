@@ -16,7 +16,7 @@ square_related: feature-kubernetes
 ---
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/HomeLab.png" description="Bare Metal Home Lab - circa 2020" %}
 
-I learned how not to build a home lab. You should avoid small machines and go with big, multiprocessor machines with fast hypervisors, that is, unless you enjoy finding new ways to use Raspberry Pis.
+I learned how not to build a home lab, at least in my case. I decided to avoid small machines and go with big, multiprocessor machines with a fast hypervisor (type-1), that is, because I wasn't enjoying tinkering with my Raspberry Pis anymore.
 
 In 2020, I built a bare-metal home lab consisting of a Raspberry Pi K3S Kubernetes cluster and a cluster of Mac Minis. Running Kubernetes on Raspberry Pis was fun, but eventually, I needed more clusters running different Kubernetes distributions. The problem with bare metal is that it is inflexible and can get expensive over time. It was time to re-think my home lab strategy.
 
@@ -38,9 +38,9 @@ What if you need more? Do you go Cloud or on-premises? That depends on your requ
 ## Cloud
 If you want to spin up short-lived clusters in the Cloud to avoid costs, I recommend using Terraform and Ansible for IaC (Infrastructure as Code). IoC lets you create and destroy Kubernetes clusters on a whim. As an application developer, I don’t have to use Terraform and Ansible much at work, but I use them in my lab.
 ## On-premises
-If you need long-lived K8S clusters, for instance, to run <a href="https://www.youtube.com/watch?v=icyTnoonRqI">home automation with Home Assistant</a>, you should find a multi-core, high-memory machine to do virtualization. I bought an old dual-Xeon HP Z620 Workstation with 8-cores and 64 GB of RAM for cheap. 
+If you need long-lived K8S clusters, for instance, to run <a href="https://www.youtube.com/watch?v=icyTnoonRqI">home automation with Home Assistant</a>, you should find a multi-core, high-memory machine to do virtualization. I bought a used, dual-Xeon machine with 64 GB of RAM for cheap. 
 
-{% include tip.html content="When I reimaged my $399, 8-year old workstation, the Centos and EXSi installations warned that support for its firmware may end in an upcoming release. Maybe you should spend a little more money for something a little less vintage. 😊" %}
+{% include tip.html content="When I re-imaged that 8-year-old machine, Centos, and later, vSphere EXSi warned that support for its firmware may end in an upcoming release. Maybe you should spend a little more money for a little less vintage machine. 😊" %}
 
 ## Hypervisors
 There are two types of hypervisor to do virtualization: type-1 or type-2.
@@ -76,7 +76,7 @@ Harvester looks really nice. I will definitely give it a try.
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/create-vm.png" description="Harvester GUI"%}
 
-I wasn't aware of Harvester when I originally imaged my HP Z620 Workstation, so I went with Centos and Cockpit. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how it looked with the Cockpit GUI. 
+I wasn't aware of Harvester when I originally imaged "new" lab workstation, so I went with Centos and Cockpit. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how it looked with the Cockpit GUI. 
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/cockpit.png" description="KVM with Cockpit"%}
 
