@@ -76,7 +76,7 @@ Harvester looks really nice. I will definitely give it a try.
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/create-vm.png" description="Harvester GUI"%}
 
-I wasn't aware of Harvester when I originally imaged "new" lab workstation, so I went with Centos and Cockpit. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how it looked with the Cockpit GUI. 
+I wasn't aware of Harvester when I originally imaged my "new" lab workstation, so I went with Centos and Cockpit. It used a bridged network, so all my physical and virtual machines shared the same subnet. Here is how it looked with the Cockpit GUI. 
 
 {% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/cockpit.png" description="KVM with Cockpit"%}
 
