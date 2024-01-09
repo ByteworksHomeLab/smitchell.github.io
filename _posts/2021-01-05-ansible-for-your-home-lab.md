@@ -14,7 +14,12 @@ feature_image: feature-raspberry
 show_related_posts: false
 square_related: recommend-raspberry
 ---
-{% include image.html url="/img/post-assets/ansible-for-your-home-lab/ansible.png" %}
+<a href="./ansible-for-your-home-lab">
+    <img 
+        src="/img/post-assets/ansible-for-your-home-lab/ansible.png" 
+        alt="Ansible logo"
+    >
+</a>
 
 Disaster struck in my home lab, again. This time I knocked a power cord loose on my USB power hub, taking down four of my Kubernetes nodes. That usually would not have been a “disaster,” but it broke the “sudo” command, and you can’t maintain Ubuntu without the sudo command. Long story.
 

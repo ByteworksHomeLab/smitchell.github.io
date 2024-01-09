@@ -14,7 +14,12 @@ feature_image: feature-spring
 show_related_posts: false
 square_related: recommend-spring
 ---
-{% include image.html url="/img/post-assets/dcos-on-gcp/dcos_gcp.png" %}
+<a href="./dcos-on-gcp">
+    <img 
+        src="/img/post-assets/dcos-on-gcp/dcos_gcp.png" 
+        alt="DC/OS on GCP"
+    >
+</a>
 
 My [previous post](https://exploringspatial.wordpress.com/2016/12/11/collaborating-on-google-cloud-platform/) discussed setting up your Google Cloud Platform account to run DC/OS. Now we move on to installing DC/OS. Before starting, if you are new to DC/OS, take a moment to familiarize yourself with [DC/OS concepts](https://docs.mesosphere.com/1.8/overview/concepts/). Also, look at [The Mesosphere guide to getting started with DC/OS](https://mesosphere.com/blog/2016/04/20/mesosphere-guide-getting-started-dcos/) written about setting up DC/OS on AWS. Even though those instructions use shell scripts to generate the nodes, and the Google Cloud Platform project uses Ansible scripts, the concepts are the same.
 
