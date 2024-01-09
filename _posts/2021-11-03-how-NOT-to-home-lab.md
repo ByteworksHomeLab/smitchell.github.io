@@ -14,7 +14,12 @@ feature_image: feature-kubernetes
 show_related_posts: false
 square_related: feature-kubernetes
 ---
-{% include image.html url="/img/post-assets/2021-11-03-how-not-to-home-lab/HomeLab.png" description="Bare Metal Home Lab - circa 2020" %}
+<a href="./how-NOT-to-home-lab">
+    <img 
+        src="/img/post-assets/2021-11-03-how-not-to-home-lab/HomeLab.png" 
+        alt="Bare Metal Home Lab - circa 2020"
+    >
+</a>
 
 I learned how not to build a home lab, at least in my case. I decided to avoid small machines and go with big, multiprocessor machines with a fast hypervisor (type-1), that is, because I wasn't enjoying tinkering with my Raspberry Pis anymore.
 
