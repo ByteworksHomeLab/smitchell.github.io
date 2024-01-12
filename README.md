@@ -78,5 +78,3 @@ References:
 
 [1] Jekyll theme "Minimal" for GitHub Pages: https://github.com/pages-themes/minimal (CC0 1.0 Universal License)
 [2] https://www.cloudytuts.com/guides/kubernetes/how-to-deploy-jekyll-on-kubernetes/
-
----
