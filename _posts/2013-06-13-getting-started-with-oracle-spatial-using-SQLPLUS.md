@@ -15,7 +15,12 @@ show_related_posts: false
 square_related: recommend-geospatial
 youtubeid: lW3zlj3zWjM
 ---
-{% include image.html url="/img/post-assets/2013-06-13-getting-started-with-oracle-spatial-using-SQLPLUS/sqlplus.gif" description="" %}
+<a href="./getting-started-with-oracle-spatial-using-SQLPLUS">
+    <img 
+        src="/img/post-assets/2013-06-13-getting-started-with-oracle-spatial-using-SQLPLUS/sqlplus.gif" 
+        alt="SQL*Plus Logo"
+    >
+</a>
 
 In my previous post, How to Install Oracle Spatial and Graph on OEL 6.4, I showed how to install Oracle 11g Enterprise Edition. In this post, I show how to use SQL*PLUS to create a test user account and a spatially indexed table into which the path of the Kansas Speedway is inserted. Finally, I show a couple of straightforward spatial queries.
 

@@ -15,7 +15,7 @@ show_related_posts: false
 square_related: recommend-geospatial
 youtubeid: lW3zlj3zWjM
 ---
-<a href="./installing-oracle-sql-developer">
+<a href="./how-to-install-oracle-mapviewer">
     <img 
         src="/img/post-assets/2013-06-09-how-to-install-oracle-mapviewer/mapviewerlogo.png" 
         alt="MapViewer Logo"
